@@ -95,11 +95,10 @@
                                     <div class="editable mb-4 animate__animated animate__fadeInUp animate__slower">Kepada
                                        Yth;<br>Bapak/Ibu/Saudara/i
                                     </div>
-                                    <div id="guestNameSlot" class="editable color-accent h5 font-weight-bold mb-4 animate__animated animate__fadeInUp animate__slower">
+                                    <div id="guestName" class="editable color-accent h5 font-weight-bold mb-4 animate__animated animate__fadeInUp animate__slower">
                                        Tamu Undangan
-                                    </div>
-                                    <button type="button" class="btn-open-invitation btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow">Buka
-                                    Undangan</button>
+                                   </div>
+                                   <button type="button" class="btn-open-invitation btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" onclick="getGuestName()">Buka Undangan</button>
                                  </div>
                               </div>
                            </div>
@@ -872,6 +871,16 @@
       <script src="assets/js/app.js"></script>
       <script src="assets/js/splide.min.js"></script>
       <script src="assets/js/themev2.js"></script>
+      <script>
+         function getGuestName() {
+             const urlParams = new URLSearchParams(window.location.search);
+             const guestName = urlParams.get('to');
+     
+             if (guestName) {
+                 document.getElementById('guestName').innerHTML = guestName;
+             }
+         }
+     </script>
       <script>
          function updateTime() {
              const currentDateElement = document.getElementById("currentDate");
