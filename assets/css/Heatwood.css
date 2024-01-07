@@ -5,5 +5,5 @@
          url('../fonts/Heatwood.woff2') format('woff2'),
          url('../fonts/Heatwood.woff') format('woff'),
          url('../fonts/Heatwood.ttf')  format('truetype'),
-         url('../images/Heatwood.svg#Heatwood') format('svg');
+         url('../assets/images/Heatwood.svg#Heatwood') format('svg');
 }
