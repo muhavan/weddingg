@@ -3,7 +3,6 @@ DirectoryIndex index.html index.php
 # Enable URL rewriting if mod_rewrite is available
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /weddingg/
 
     # Ensure /admin routes to admin/
     RewriteRule ^admin$ admin/ [L,R=301]

@@ -10,14 +10,21 @@ function getDbConnection() {
     }
 
     $connections = [
-        // 1. Local MySQL
+        // 1. Local MySQL (XAMPP localhost)
         [
-            'host' => 'localhost',
+            'host' => '127.0.0.1',
             'dbname' => 'undangan',
             'username' => 'root',
             'password' => ''
         ],
-        // 2. Remote MySQL (Hostinger fallback)
+        // 2. Hostinger Server Localhost (when deployed online on Hostinger)
+        [
+            'host' => 'localhost',
+            'dbname' => 'u883909247_weddingg',
+            'username' => 'u883909247_weddingg',
+            'password' => 'Weddingg@88'
+        ],
+        // 3. Remote MySQL (Direct Hostinger IP fallback)
         [
             'host' => '153.92.15.11',
             'dbname' => 'u883909247_weddingg',
@@ -32,11 +39,15 @@ function getDbConnection() {
             $pdo = new PDO($dsn, $conn['username'], $conn['password'], [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_TIMEOUT => 2
+                PDO::ATTR_TIMEOUT => 3
             ]);
 
             // Ensure wedding_settings table exists
-            initSettingsTable($pdo);
+            try {
+                initSettingsTable($pdo);
+            } catch (Exception $e) {
+                // Table might already exist or restricted permission
+            }
             return $pdo;
         } catch (Exception $e) {
             // Try next connection

@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard &bull; The Wedding of Evan &amp; Salwa</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #14100e;
+      --bg-surface: #1e1916;
+      --bg-card: #28211d;
+      --bg-card-hover: #332b26;
+      --border-color: rgba(197, 160, 89, 0.25);
+      --border-focus: #c5a059;
+      --color-gold: #c5a059;
+      --color-gold-light: #f5e4c3;
+      --color-gold-dark: #916c1a;
+      --color-primary: #a36552;
+      --color-text: #f8f6f0;
+      --color-text-muted: #a6988f;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(rgba(197, 160, 89, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, #181310 0%, #100d0b 100%);
+      background-size: 28px 28px, 100% 100%;
+      color: var(--color-text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ===================================================================
+       LOGIN MODAL / FORM
+       =================================================================== */
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .login-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 440px;
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #916c1a, #c5a059, #f5e4c3, #c5a059);
+    }
+
+    .login-title {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      color: var(--color-gold-light);
+      margin-bottom: 6px;
+    }
+
+    .login-subtitle {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      margin-bottom: 28px;
+    }
+
+    .alert-danger {
+      background: rgba(220, 53, 69, 0.15);
+      border: 1px solid rgba(220, 53, 69, 0.4);
+      color: #ff8585;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+      text-align: left;
+      display: none;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-gold-light);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .btn-gold {
+      width: 100%;
+      padding: 13px 20px;
+      background: linear-gradient(135deg, #c5a059 0%, #916c1a 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(197, 160, 89, 0.35);
+    }
+
+    .login-helper {
+      margin-top: 24px;
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      border-top: 1px dashed rgba(197, 160, 89, 0.25);
+      padding-top: 18px;
+    }
+
+    /* ===================================================================
+       AUTHENTICATED DASHBOARD HEADER & NAV
+       =================================================================== */
+    #dashboardView {
+      display: none;
+    }
+
+    .dashboard-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-crest {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold-light);
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.15rem;
+      background: rgba(197, 160, 89, 0.1);
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--color-gold-light);
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-header {
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-header-view {
+      background: rgba(197, 160, 89, 0.15);
+      border-color: rgba(197, 160, 89, 0.35);
+      color: var(--color-gold-light);
+    }
+
+    .btn-header-view:hover {
+      background: rgba(197, 160, 89, 0.25);
+    }
+
+    .btn-header-logout {
+      background: rgba(220, 53, 69, 0.15);
+      border-color: rgba(220, 53, 69, 0.35);
+      color: #ff9898;
+    }
+
+    .btn-header-logout:hover {
+      background: rgba(220, 53, 69, 0.25);
+    }
+
+    /* Container */
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 24px 100px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .stat-icon {
+      font-size: 2.2rem;
+    }
+
+    .stat-val {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: var(--font-serif);
+      color: var(--color-text);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+
+    /* Tabs Navigation */
+    .tabs-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 14px;
+    }
+
+    .tab-btn {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-color);
+      color: var(--color-text-muted);
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      background: rgba(197, 160, 89, 0.15);
+      color: var(--color-gold-light);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #c5a059 0%, #916c1a 100%);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35);
+    }
+
+    /* Panels & Cards */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .panel-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--color-gold-light);
+      margin-bottom: 6px;
+    }
+
+    .panel-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 22px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    /* Photo Management Cards */
+    .photo-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .photo-preview-wrap {
+      width: 160px;
+      height: 210px;
+      border-radius: 120px 120px 14px 14px;
+      overflow: hidden;
+      border: 2px solid var(--color-gold);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      margin-bottom: 14px;
+      background: #000;
+    }
+
+    .photo-preview-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--color-gold-light);
+      margin-bottom: 4px;
+    }
+
+    .photo-sub {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      margin-bottom: 14px;
+    }
+
+    .file-input-hidden {
+      display: none;
+    }
+
+    .btn-upload-trigger {
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 500;
+      background: rgba(197, 160, 89, 0.15);
+      border: 1px solid var(--border-color);
+      color: var(--color-gold-light);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-upload-trigger:hover {
+      background: rgba(197, 160, 89, 0.3);
+    }
+
+    /* Table */
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .custom-table th {
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--color-gold-light);
+      font-weight: 600;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .custom-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.12);
+      vertical-align: middle;
+    }
+
+    .custom-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .badge-hadir {
+      background: rgba(76, 235, 119, 0.15);
+      color: #4ceb77;
+      border: 1px solid rgba(76, 235, 119, 0.35);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-absen {
+      background: rgba(255, 120, 120, 0.15);
+      color: #ff7878;
+      border: 1px solid rgba(255, 120, 120, 0.35);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .btn-action-del {
+      background: rgba(220, 53, 69, 0.15);
+      border: 1px solid rgba(220, 53, 69, 0.35);
+      color: #ff8585;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-action-del:hover {
+      background: rgba(220, 53, 69, 0.3);
+    }
+
+    .comments-search-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .save-bar {
+      margin-top: 24px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    /* Toast Notification */
+    .toast-popup {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--color-gold);
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast-popup.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-header {
+        padding: 14px 18px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      .dashboard-container {
+        padding: 20px 14px 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================================================================
+       1. LOGIN CARD VIEW (CLIENT-SIDE / SPA AUTH)
+       =================================================================== -->
+  <div id="loginView" class="login-container">
+    <div class="login-box">
+      <div style="font-size: 2.2rem; margin-bottom: 8px;">💍</div>
+      <h1 class="login-title">Wedding Admin</h1>
+      <p class="login-subtitle">The Wedding of Evan &amp; Salwa</p>
+
+      <div id="loginAlert" class="alert-danger">Email atau password salah. Silakan coba lagi.</div>
+
+      <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="emailInput">Email / Username</label>
+          <input type="text" id="emailInput" class="form-control" placeholder="admin@wedding.com" value="admin@wedding.com" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="passwordInput">Password</label>
+          <input type="password" id="passwordInput" class="form-control" placeholder="••••••••" value="admin123" required>
+        </div>
+
+        <button type="submit" class="btn-gold" style="margin-top: 10px;">
+          <span>Masuk ke Dashboard</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+
+        <div class="login-helper">
+          Default Akun Admin:<br>
+          Username: <strong>admin@wedding.com</strong> &bull; Password: <strong>admin123</strong>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       2. AUTHENTICATED ADMIN DASHBOARD
+       =================================================================== -->
+  <div id="dashboardView">
+    <header class="dashboard-header">
+      <div class="brand-area">
+        <div class="brand-crest">ES</div>
+        <div>
+          <h2 class="brand-title">The Wedding of Evan &amp; Salwa</h2>
+          <div class="brand-sub">Admin Control Portal &bull; Super Admin</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="../index.html" target="_blank" class="btn-header btn-header-view">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+          <span>Lihat Website</span>
+        </a>
+
+        <button type="button" class="btn-header btn-header-logout" onclick="handleLogout()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+          <span>Logout</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-container">
+
+      <!-- Quick Stats Ribbon -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">💌</div>
+          <div>
+            <div class="stat-val" id="statTotalComments">0</div>
+            <div class="stat-label">Total Doa &amp; Ucapan</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="color: #4ceb77;">🟢</div>
+          <div>
+            <div class="stat-val" id="statTotalHadir" style="color: #4ceb77;">0</div>
+            <div class="stat-label">Konfirmasi Hadir</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="color: #ff7878;">🔴</div>
+          <div>
+            <div class="stat-val" id="statTotalAbsen" style="color: #ff7878;">0</div>
+            <div class="stat-label">Berhalangan Hadir</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="color: var(--color-gold);">⏳</div>
+          <div>
+            <div class="stat-val" id="daysToGoVal" style="color: var(--color-gold-light);">-</div>
+            <div class="stat-label">Hari Menuju Acara</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="tabs-nav">
+        <button type="button" class="tab-btn active" onclick="switchAdminTab('tab-acara', this)">
+          <span>📅 Detail Acara &amp; Tanggal</span>
+        </button>
+        <button type="button" class="tab-btn" onclick="switchAdminTab('tab-foto', this)">
+          <span>📸 Kelola Foto &amp; Galeri</span>
+        </button>
+        <button type="button" class="tab-btn" onclick="switchAdminTab('tab-ucapan', this)">
+          <span>💌 Kelola Doa &amp; Ucapan</span>
+        </button>
+        <button type="button" class="tab-btn" onclick="switchAdminTab('tab-kutipan', this)">
+          <span>✍️ Kutipan &amp; Teks Santai</span>
+        </button>
+        <button type="button" class="tab-btn" onclick="switchAdminTab('tab-hadiah', this)">
+          <span>💳 Amplop Digital &amp; Kado</span>
+        </button>
+      </nav>
+
+      <!-- TAB 1: DETAIL ACARA & TANGGAL -->
+      <div id="tab-acara" class="tab-pane active">
+        <form id="formDetailAcara" onsubmit="saveAcaraSettings(event)">
+          <input type="hidden" name="groom_photo" id="adminGroomPhotoHidden" value="assets/images/cowo.png">
+          <input type="hidden" name="bride_photo" id="adminBridePhotoHidden" value="assets/images/cewe.jpeg">
+          <input type="hidden" name="cover_photo" id="adminCoverPhotoHidden" value="assets/images/savan.jpg">
+
+          <!-- Tanggal & Judul -->
+          <div class="panel-card">
+            <h3 class="panel-title">🗓️ Pengaturan Waktu &amp; Tanggal Utama</h3>
+            <p class="panel-desc">Atur tanggal countdown hitung mundur dan teks yang tertera di cover website.</p>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label">Judul Undangan</label>
+                <input type="text" class="form-control" name="general_title" value="The Wedding of Evan &amp; Salwa" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Target Countdown (Tanggal &amp; Jam Acara)</label>
+                <input type="datetime-local" class="form-control" id="targetWeddingDate" name="general_wedding_date" value="2026-06-15T08:00" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Teks Tanggal Lengkap (Di Tampilan Undangan)</label>
+                <input type="text" class="form-control" name="general_wedding_date_formatted" value="Minggu, 15 Juni 2026" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mempelai Pria & Wanita -->
+          <div class="panel-card">
+            <h3 class="panel-title">👫 Profil Kedua Mempelai</h3>
+            <p class="panel-desc">Ubah nama lengkap, panggilan, nama orang tua, serta akun Instagram pengantin.</p>
+
+            <div class="grid-2">
+              <!-- Pria -->
+              <div style="background: rgba(0,0,0,0.25); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <h4 style="color: var(--color-gold-light); margin-bottom: 14px; font-size: 1.05rem;">🤵 Mempelai Pria</h4>
+
+                <div class="form-group">
+                  <label class="form-label">Nama Lengkap</label>
+                  <input type="text" class="form-control" name="groom_fullname" value="Muhamad Evan Fauzan" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Nama Panggilan</label>
+                  <input type="text" class="form-control" name="groom_nickname" value="Evan" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Keluarga / Orang Tua</label>
+                  <input type="text" class="form-control" name="groom_parents" value="Putra Pertama dari Bapak Fauzan &amp; Ibu ..." required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Instagram Username (tanpa @)</label>
+                  <input type="text" class="form-control" name="groom_instagram" value="muhavann">
+                </div>
+              </div>
+
+              <!-- Wanita -->
+              <div style="background: rgba(0,0,0,0.25); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <h4 style="color: var(--color-gold-light); margin-bottom: 14px; font-size: 1.05rem;">👰 Mempelai Wanita</h4>
+
+                <div class="form-group">
+                  <label class="form-label">Nama Lengkap</label>
+                  <input type="text" class="form-control" name="bride_fullname" value="Salwa Carelina Maybrella" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Nama Panggilan</label>
+                  <input type="text" class="form-control" name="bride_nickname" value="Salwa" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Keluarga / Orang Tua</label>
+                  <input type="text" class="form-control" name="bride_parents" value="Putri Tercinta dari Bapak ... &amp; Ibu ..." required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Instagram Username (tanpa @)</label>
+                  <input type="text" class="form-control" name="bride_instagram" value="salwacarel_">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Akad & Resepsi -->
+          <div class="panel-card">
+            <h3 class="panel-title">🕌 Waktu &amp; Lokasi Acara</h3>
+            <p class="panel-desc">Atur jadwal Akad Nikah dan Resepsi Pernikahan secara presisi.</p>
+
+            <div class="grid-2">
+              <!-- Akad -->
+              <div style="background: rgba(0,0,0,0.25); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <h4 style="color: var(--color-gold-light); margin-bottom: 14px;">💍 Akad Nikah</h4>
+
+                <div class="form-group">
+                  <label class="form-label">Judul Sesi</label>
+                  <input type="text" class="form-control" name="event_akad_title" value="Akad Nikah" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Sub Judul</label>
+                  <input type="text" class="form-control" name="event_akad_subtitle" value="Ijab Qabul &amp; Janji Suci" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Hari &amp; Tanggal</label>
+                  <input type="text" class="form-control" name="event_akad_date" value="Minggu, 15 Juni 2026" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Waktu Pelaksanaan</label>
+                  <input type="text" class="form-control" name="event_akad_time" value="08.00 - 10.00 WIB" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Nama Tempat / Gedung</label>
+                  <input type="text" class="form-control" name="event_akad_venue" value="Masjid Istiqlal Jakarta" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Alamat Lengkap</label>
+                  <textarea class="form-control" name="event_akad_address" rows="2" required>Jl. Taman Wijaya Kusuma, Ps. Baru, Sawah Besar, Jakarta Pusat</textarea>
+                </div>
+              </div>
+
+              <!-- Resepsi -->
+              <div style="background: rgba(0,0,0,0.25); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <h4 style="color: var(--color-gold-light); margin-bottom: 14px;">🥂 Resepsi Pernikahan</h4>
+
+                <div class="form-group">
+                  <label class="form-label">Judul Sesi</label>
+                  <input type="text" class="form-control" name="event_resepsi_title" value="Resepsi Pernikahan" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Sub Judul</label>
+                  <input type="text" class="form-control" name="event_resepsi_subtitle" value="Ramah Tamah &amp; Perayaan Cinta" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Hari &amp; Tanggal</label>
+                  <input type="text" class="form-control" name="event_resepsi_date" value="Minggu, 15 Juni 2026" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Waktu Pelaksanaan</label>
+                  <input type="text" class="form-control" name="event_resepsi_time" value="11.00 - 14.00 WIB" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Nama Tempat / Gedung</label>
+                  <input type="text" class="form-control" name="event_resepsi_venue" value="Grand Ballroom Masjid Istiqlal Jakarta" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Alamat Lengkap</label>
+                  <textarea class="form-control" name="event_resepsi_address" rows="2" required>Jl. Taman Wijaya Kusuma, Ps. Baru, Sawah Besar, Jakarta Pusat</textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+              <label class="form-label">URL Tautan Google Maps</label>
+              <input type="url" class="form-control" name="event_maps_url" value="https://maps.app.goo.gl/SGwtYZqm3dLAxDAb9" required>
+            </div>
+          </div>
+
+          <div class="save-bar">
+            <button type="submit" class="btn-gold" style="width: auto; padding: 12px 32px;">
+              💾 Simpan Perubahan Acara &amp; Tanggal
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- TAB 2: KELOLA FOTO & GALERI -->
+      <div id="tab-foto" class="tab-pane">
+        <div class="panel-card">
+          <h3 class="panel-title">📸 Foto Pengantin Utama</h3>
+          <p class="panel-desc">Klik tombol "Ganti Foto" untuk mengunggah gambar baru secara langsung (otomatis memperbarui website).</p>
+
+          <div class="grid-3">
+            <!-- Cover -->
+            <div class="photo-card">
+              <div class="photo-preview-wrap">
+                <img id="previewCover" src="../assets/images/savan.jpg" alt="Cover Photo">
+              </div>
+              <div class="photo-title">Foto Sampul / Cover</div>
+              <div class="photo-sub">Ditampilkan pada modal pembuka &amp; banner atas</div>
+              <input type="file" id="uploadCoverInput" class="file-input-hidden" accept="image/*" onchange="uploadPhoto('cover', this, 'previewCover')">
+              <label for="uploadCoverInput" class="btn-upload-trigger">
+                📤 Ganti Foto Sampul
+              </label>
+            </div>
+
+            <!-- Groom -->
+            <div class="photo-card">
+              <div class="photo-preview-wrap">
+                <img id="previewGroom" src="../assets/images/cowo.png" alt="Groom Photo">
+              </div>
+              <div class="photo-title">Foto Mempelai Pria</div>
+              <div class="photo-sub">Ditampilkan pada kartu profil Evan</div>
+              <input type="file" id="uploadGroomInput" class="file-input-hidden" accept="image/*" onchange="uploadPhoto('groom', this, 'previewGroom')">
+              <label for="uploadGroomInput" class="btn-upload-trigger">
+                📤 Ganti Foto Pria
+              </label>
+            </div>
+
+            <!-- Bride -->
+            <div class="photo-card">
+              <div class="photo-preview-wrap">
+                <img id="previewBride" src="../assets/images/cewe.jpeg" alt="Bride Photo">
+              </div>
+              <div class="photo-title">Foto Mempelai Wanita</div>
+              <div class="photo-sub">Ditampilkan pada kartu profil Salwa</div>
+              <input type="file" id="uploadBrideInput" class="file-input-hidden" accept="image/*" onchange="uploadPhoto('bride', this, 'previewBride')">
+              <label for="uploadBrideInput" class="btn-upload-trigger">
+                📤 Ganti Foto Wanita
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galeri Foto Prewedding -->
+        <div class="panel-card">
+          <h3 class="panel-title">🖼️ Galeri Foto Prewedding</h3>
+          <p class="panel-desc">Foto-foto bahagia yang tampil pada grid dan lightbox interaktif.</p>
+
+          <div class="grid-3" id="galleryContainer">
+            <!-- Generated dynamically by script -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: KELOLA DOA & UCAPAN -->
+      <div id="tab-ucapan" class="tab-pane">
+        <div class="panel-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+            <div>
+              <h3 class="panel-title">💌 Buku Tamu &amp; Moderasi Doa Restu</h3>
+              <p class="panel-desc" style="margin-bottom: 0;">Kelola ucapan yang dikirim oleh para tamu undangan.</p>
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="btn-header btn-header-view" onclick="exportWishesCsv()">
+                📥 Export CSV
+              </button>
+              <button type="button" class="btn-header btn-header-view" onclick="loadCommentsData()">
+                🔄 Segarkan Data
+              </button>
+            </div>
+          </div>
+
+          <div class="comments-search-bar">
+            <input type="text" id="wishesSearch" class="form-control" style="max-width: 320px;" placeholder="Cari nama tamu / ucapan..." onkeyup="filterWishesTable()">
+            <select id="wishesFilterStatus" class="form-control" style="max-width: 200px;" onchange="filterWishesTable()">
+              <option value="all">Semua Status</option>
+              <option value="hadir">Konfirmasi Hadir</option>
+              <option value="absen">Berhalangan Hadir</option>
+            </select>
+          </div>
+
+          <div class="table-responsive">
+            <table class="custom-table" id="commentsTable">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">ID</th>
+                  <th style="width: 180px;">Nama Tamu</th>
+                  <th style="width: 140px;">Status Kehadiran</th>
+                  <th>Isi Doa &amp; Ucapan</th>
+                  <th style="width: 160px;">Waktu Kirim</th>
+                  <th style="width: 90px; text-align: center;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="commentsTableBody">
+                <tr>
+                  <td colspan="6" style="text-align: center; color: var(--color-text-muted); padding: 32px;">
+                    Memuat data ucapan...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: KUTIPAN & TEKS SANTAI -->
+      <div id="tab-kutipan" class="tab-pane">
+        <form id="formKutipan" onsubmit="saveKutipanSettings(event)">
+          <div class="panel-card">
+            <h3 class="panel-title">✍️ Kutipan Cinta &amp; Salam Universal</h3>
+            <p class="panel-desc">Teks romantis universal, santai, dan ramah untuk seluruh tamu dari berbagai latar belakang.</p>
+
+            <div class="form-group">
+              <label class="form-label">Judul Bagian Sambutan</label>
+              <input type="text" class="form-control" name="general_greeting_title" value="Salam Hangat &amp; Penuh Sukacita" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Pesan Sambutan Pembuka</label>
+              <textarea class="form-control" rows="3" name="general_greeting_message" required>Dengan penuh rasa syukur dan sukacita, kami mengundang Bapak/Ibu/Saudara/i serta sahabat terkasih untuk menjadi bagian dari hari bahagia kami berdua.</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kutipan Romantis Utama (Love Quote)</label>
+              <textarea class="form-control" rows="3" name="general_love_quote" required>Dua jiwa namun satu pikiran, dua hati yang berdetak sebagai satu. Bersama kami melangkah, menyatukan cinta dalam ikatan janji seumur hidup.</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Penulis / Atribusi Kutipan</label>
+              <input type="text" class="form-control" name="general_quote_author" value="Evan &amp; Salwa" required>
+            </div>
+
+            <div class="save-bar">
+              <button type="submit" class="btn-gold" style="width: auto; padding: 12px 32px;">
+                💾 Simpan Kutipan &amp; Sambutan
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- TAB 5: AMPLOP DIGITAL & KADO -->
+      <div id="tab-hadiah" class="tab-pane">
+        <form id="formHadiah" onsubmit="saveHadiahSettings(event)">
+          <div class="panel-card">
+            <h3 class="panel-title">💳 Rekening Bank &amp; E-Wallet</h3>
+            <p class="panel-desc">Informasi nomor rekening untuk amplop digital bagi tamu yang mengirimkan tanda kasih.</p>
+
+            <div class="grid-2">
+              <!-- Bank BCA -->
+              <div style="background: rgba(0,0,0,0.25); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <h4 style="color: var(--color-gold-light); margin-bottom: 14px;">💳 Rekening Bank BCA</h4>
+
+                <div class="form-group">
+                  <label class="form-label">Nomor Rekening BCA</label>
+                  <input type="text" class="form-control" name="gift_bca_no" value="12345678" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Nama Pemilik Rekening</label>
+                  <input type="text" class="form-control" name="gift_bca_name" value="Muhamad Evan Fauzan" required>
+                </div>
+              </div>
+
+              <!-- E-Wallet DANA -->
+              <div style="background: rgba(0,0,0,0.25); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <h4 style="color: var(--color-gold-light); margin-bottom: 14px;">📱 E-Wallet (DANA / Gopay)</h4>
+
+                <div class="form-group">
+                  <label class="form-label">Nomor DANA / HP</label>
+                  <input type="text" class="form-control" name="gift_dana_no" value="085718945476" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Nama Akun DANA</label>
+                  <input type="text" class="form-control" name="gift_dana_name" value="Muhamad Evan Fauzan" required>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alamat Fisik Pengiriman Kado -->
+          <div class="panel-card">
+            <h3 class="panel-title">📦 Alamat Pengiriman Kado Fisik</h3>
+            <p class="panel-desc">Alamat rumah pengantin untuk kiriman kado pernikahan.</p>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label">Nama Penerima Paket</label>
+                <input type="text" class="form-control" name="gift_recipient" value="Evan &amp; Salwa" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Nomor Telepon / WhatsApp</label>
+                <input type="text" class="form-control" name="gift_phone" value="0857-1894-5476" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Alamat Lengkap</label>
+              <textarea class="form-control" rows="3" name="gift_address" required>Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, DKI Jakarta 10710</textarea>
+            </div>
+
+            <div class="save-bar">
+              <button type="submit" class="btn-gold" style="width: auto; padding: 12px 32px;">
+                💾 Simpan Rekening &amp; Alamat
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastPopup" class="toast-popup">
+    <span id="toastIcon">✦</span>
+    <span id="toastMessage">Pemberitahuan</span>
+  </div>
+
+  <script>
+    let currentSettings = {
+      general: {
+        title: 'The Wedding of Evan & Salwa',
+        wedding_date: '2026-06-15T08:00',
+        wedding_date_formatted: 'Minggu, 15 Juni 2026',
+        greeting_title: 'Salam Hangat & Penuh Sukacita',
+        greeting_message: 'Dengan penuh rasa syukur dan sukacita, kami mengundang Bapak/Ibu/Saudara/i serta sahabat terkasih untuk menjadi bagian dari hari bahagia kami berdua.',
+        love_quote: 'Dua jiwa namun satu pikiran, dua hati yang berdetak sebagai satu. Bersama kami melangkah, menyatukan cinta dalam ikatan janji seumur hidup.',
+        quote_author: 'Evan & Salwa'
+      },
+      groom: {
+        fullname: 'Muhamad Evan Fauzan',
+        nickname: 'Evan',
+        parents: 'Putra Pertama dari Bapak Fauzan & Ibu ...',
+        instagram: 'muhavann',
+        photo: 'assets/images/cowo.png'
+      },
+      bride: {
+        fullname: 'Salwa Carelina Maybrella',
+        nickname: 'Salwa',
+        parents: 'Putri Tercinta dari Bapak ... & Ibu ...',
+        instagram: 'salwacarel_',
+        photo: 'assets/images/cewe.jpeg'
+      },
+      cover: {
+        photo: 'assets/images/savan.jpg'
+      },
+      events: {
+        akad: {
+          title: 'Akad Nikah',
+          subtitle: 'Ijab Qabul & Janji Suci',
+          date: 'Minggu, 15 Juni 2026',
+          time: '08.00 - 10.00 WIB',
+          venue: 'Masjid Istiqlal Jakarta',
+          address: 'Jl. Taman Wijaya Kusuma, Ps. Baru, Sawah Besar, Jakarta Pusat',
+          maps_url: 'https://maps.app.goo.gl/SGwtYZqm3dLAxDAb9'
+        },
+        resepsi: {
+          title: 'Resepsi Pernikahan',
+          subtitle: 'Ramah Tamah & Perayaan Cinta',
+          date: 'Minggu, 15 Juni 2026',
+          time: '11.00 - 14.00 WIB',
+          venue: 'Grand Ballroom Masjid Istiqlal Jakarta',
+          address: 'Jl. Taman Wijaya Kusuma, Ps. Baru, Sawah Besar, Jakarta Pusat',
+          maps_url: 'https://maps.app.goo.gl/SGwtYZqm3dLAxDAb9'
+        }
+      },
+      gift: {
+        bca_no: '12345678',
+        bca_name: 'Muhamad Evan Fauzan',
+        dana_no: '085718945476',
+        dana_name: 'Muhamad Evan Fauzan',
+        address_recipient: 'Evan & Salwa',
+        address_phone: '0857-1894-5476',
+        address_full: 'Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, DKI Jakarta 10710'
+      },
+      gallery: [
+        'assets/images/savan.jpg',
+        'assets/images/img1.jpeg',
+        'assets/images/img2.jpeg',
+        'assets/images/img3.jpeg',
+        'assets/images/img4.jpeg'
+      ]
+    };
+
+    let cachedComments = [];
+
+    // Check Auth on Init
+    window.addEventListener('DOMContentLoaded', () => {
+      const isAuth = sessionStorage.getItem('wedding_admin_auth');
+      if (isAuth === 'true') {
+        showDashboard();
+      } else {
+        showLogin();
+      }
+    });
+
+    function showLogin() {
+      document.getElementById('loginView').style.display = 'flex';
+      document.getElementById('dashboardView').style.display = 'none';
+    }
+
+    function showDashboard() {
+      document.getElementById('loginView').style.display = 'none';
+      document.getElementById('dashboardView').style.display = 'block';
+      loadSettingsData();
+      loadCommentsData();
+      updateDaysToGo();
+    }
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value.trim();
+      const pass = document.getElementById('passwordInput').value;
+
+      if ((email === 'admin@wedding.com' || email === 'admin') && pass === 'admin123') {
+        sessionStorage.setItem('wedding_admin_auth', 'true');
+        document.getElementById('loginAlert').style.display = 'none';
+        showDashboard();
+      } else {
+        const alertBox = document.getElementById('loginAlert');
+        alertBox.textContent = 'Email atau password salah. Silakan coba lagi.';
+        alertBox.style.display = 'block';
+      }
+    }
+
+    function handleLogout() {
+      if (confirm('Apakah Anda yakin ingin keluar?')) {
+        sessionStorage.removeItem('wedding_admin_auth');
+        showLogin();
+      }
+    }
+
+    function switchAdminTab(paneId, btnElement) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+      const targetPane = document.getElementById(paneId);
+      if (targetPane) targetPane.classList.add('active');
+      if (btnElement) btnElement.classList.add('active');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastPopup');
+      const text = document.getElementById('toastMessage');
+      if (!toast || !text) return;
+
+      text.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    // Days to go
+    function updateDaysToGo() {
+      const dateInput = document.getElementById('targetWeddingDate');
+      const targetStr = dateInput ? dateInput.value : currentSettings.general.wedding_date;
+      const target = new Date(targetStr).getTime();
+      const now = new Date().getTime();
+      const diff = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+      const el = document.getElementById('daysToGoVal');
+      if (el) el.textContent = diff > 0 ? diff : 'Hari H!';
+    }
+
+    // Load Settings
+    async function loadSettingsData() {
+      try {
+        const res = await fetch('../api/settings.php');
+        if (res.ok) {
+          const contentType = res.headers.get('content-type') || '';
+          if (contentType.includes('json')) {
+            const json = await res.json();
+            if (json.success && json.data) {
+              currentSettings = Object.assign(currentSettings, json.data);
+            }
+          }
+        }
+      } catch (err) {
+        console.log('Using local/cached settings');
+      }
+
+      // Check localStorage for offline/static updates
+      const localSaved = localStorage.getItem('wedding_settings');
+      if (localSaved) {
+        try {
+          const parsed = JSON.parse(localSaved);
+          currentSettings = Object.assign(currentSettings, parsed);
+        } catch (e) {}
+      }
+
+      populateFormFields();
+      renderGalleryCards();
+    }
+
+    function populateFormFields() {
+      const fAcara = document.getElementById('formDetailAcara');
+      if (fAcara) {
+        fAcara.general_title.value = currentSettings.general.title || '';
+        if (currentSettings.general.wedding_date) {
+          fAcara.general_wedding_date.value = currentSettings.general.wedding_date.substring(0, 16);
+        }
+        fAcara.general_wedding_date_formatted.value = currentSettings.general.wedding_date_formatted || '';
+        
+        fAcara.groom_fullname.value = currentSettings.groom.fullname || '';
+        fAcara.groom_nickname.value = currentSettings.groom.nickname || '';
+        fAcara.groom_parents.value = currentSettings.groom.parents || '';
+        fAcara.groom_instagram.value = currentSettings.groom.instagram || '';
+        document.getElementById('adminGroomPhotoHidden').value = currentSettings.groom.photo || 'assets/images/cowo.png';
+
+        fAcara.bride_fullname.value = currentSettings.bride.fullname || '';
+        fAcara.bride_nickname.value = currentSettings.bride.nickname || '';
+        fAcara.bride_parents.value = currentSettings.bride.parents || '';
+        fAcara.bride_instagram.value = currentSettings.bride.instagram || '';
+        document.getElementById('adminBridePhotoHidden').value = currentSettings.bride.photo || 'assets/images/cewe.jpeg';
+
+        if (currentSettings.events && currentSettings.events.akad) {
+          fAcara.event_akad_title.value = currentSettings.events.akad.title || '';
+          fAcara.event_akad_subtitle.value = currentSettings.events.akad.subtitle || '';
+          fAcara.event_akad_date.value = currentSettings.events.akad.date || '';
+          fAcara.event_akad_time.value = currentSettings.events.akad.time || '';
+          fAcara.event_akad_venue.value = currentSettings.events.akad.venue || '';
+          fAcara.event_akad_address.value = currentSettings.events.akad.address || '';
+          fAcara.event_maps_url.value = currentSettings.events.akad.maps_url || '';
+        }
+
+        if (currentSettings.events && currentSettings.events.resepsi) {
+          fAcara.event_resepsi_title.value = currentSettings.events.resepsi.title || '';
+          fAcara.event_resepsi_subtitle.value = currentSettings.events.resepsi.subtitle || '';
+          fAcara.event_resepsi_date.value = currentSettings.events.resepsi.date || '';
+          fAcara.event_resepsi_time.value = currentSettings.events.resepsi.time || '';
+          fAcara.event_resepsi_venue.value = currentSettings.events.resepsi.venue || '';
+          fAcara.event_resepsi_address.value = currentSettings.events.resepsi.address || '';
+        }
+      }
+
+      // Photos preview
+      const pCover = document.getElementById('previewCover');
+      if (pCover && currentSettings.cover?.photo) pCover.src = '../' + currentSettings.cover.photo;
+      const pGroom = document.getElementById('previewGroom');
+      if (pGroom && currentSettings.groom?.photo) pGroom.src = '../' + currentSettings.groom.photo;
+      const pBride = document.getElementById('previewBride');
+      if (pBride && currentSettings.bride?.photo) pBride.src = '../' + currentSettings.bride.photo;
+
+      // Kutipan
+      const fKutipan = document.getElementById('formKutipan');
+      if (fKutipan) {
+        fKutipan.general_greeting_title.value = currentSettings.general.greeting_title || '';
+        fKutipan.general_greeting_message.value = currentSettings.general.greeting_message || '';
+        fKutipan.general_love_quote.value = currentSettings.general.love_quote || '';
+        fKutipan.general_quote_author.value = currentSettings.general.quote_author || '';
+      }
+
+      // Hadiah
+      const fHadiah = document.getElementById('formHadiah');
+      if (fHadiah && currentSettings.gift) {
+        fHadiah.gift_bca_no.value = currentSettings.gift.bca_no || '';
+        fHadiah.gift_bca_name.value = currentSettings.gift.bca_name || '';
+        fHadiah.gift_dana_no.value = currentSettings.gift.dana_no || '';
+        fHadiah.gift_dana_name.value = currentSettings.gift.dana_name || '';
+        fHadiah.gift_recipient.value = currentSettings.gift.address_recipient || '';
+        fHadiah.gift_phone.value = currentSettings.gift.address_phone || '';
+        fHadiah.gift_address.value = currentSettings.gift.address_full || '';
+      }
+    }
+
+    function renderGalleryCards() {
+      const container = document.getElementById('galleryContainer');
+      if (!container) return;
+      const list = currentSettings.gallery || [];
+      container.innerHTML = list.map((url, idx) => `
+        <div class="photo-card">
+          <div class="photo-preview-wrap">
+            <img id="previewGallery_${idx}" src="../${url}" alt="Galeri ${idx + 1}">
+          </div>
+          <div class="photo-title">Foto Galeri #${idx + 1}</div>
+          <div class="photo-sub">${idx === 0 ? 'Posisi Utama (Featured)' : 'Grid #' + idx}</div>
+          <input type="file" id="uploadGalleryInput_${idx}" class="file-input-hidden" accept="image/*" onchange="uploadGalleryPhoto(${idx}, this, 'previewGallery_${idx}')">
+          <label for="uploadGalleryInput_${idx}" class="btn-upload-trigger">
+            📤 Ganti Foto Ini
+          </label>
+        </div>
+      `).join('');
+    }
+
+    // Photo Upload (Client preview + API upload if supported)
+    async function uploadPhoto(type, inputElement, previewId) {
+      if (!inputElement.files || !inputElement.files[0]) return;
+      const file = inputElement.files[0];
+
+      // Instant local preview
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById(previewId);
+        if (preview) preview.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+
+      // Attempt server upload
+      const formData = new FormData();
+      formData.append('type', type);
+      formData.append('file', file);
+
+      try {
+        const res = await fetch('upload.php', { method: 'POST', body: formData });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success) {
+            showToast('✅ ' + json.message);
+            if (type === 'groom') document.getElementById('adminGroomPhotoHidden').value = json.url;
+            if (type === 'bride') document.getElementById('adminBridePhotoHidden').value = json.url;
+            if (type === 'cover') document.getElementById('adminCoverPhotoHidden').value = json.url;
+            return;
+          }
+        }
+      } catch (err) {}
+
+      showToast('✅ Foto berhasil diperbarui (Pratinjau Lokal)');
+    }
+
+    async function uploadGalleryPhoto(index, inputElement, previewId) {
+      if (!inputElement.files || !inputElement.files[0]) return;
+      const file = inputElement.files[0];
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById(previewId);
+        if (preview) preview.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+
+      const formData = new FormData();
+      formData.append('type', 'gallery');
+      formData.append('gallery_index', index);
+      formData.append('file', file);
+
+      try {
+        const res = await fetch('upload.php', { method: 'POST', body: formData });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success) {
+            showToast('✅ Foto galeri #' + (index + 1) + ' berhasil disimpan!');
+            return;
+          }
+        }
+      } catch (err) {}
+
+      showToast('✅ Foto galeri #' + (index + 1) + ' berhasil diperbarui');
+    }
+
+    // Save Handlers
+    async function saveAcaraSettings(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        general: {
+          title: form.general_title.value,
+          wedding_date: form.general_wedding_date.value,
+          wedding_date_formatted: form.general_wedding_date_formatted.value
+        },
+        cover: {
+          photo: form.cover_photo.value
+        },
+        groom: {
+          fullname: form.groom_fullname.value,
+          nickname: form.groom_nickname.value,
+          parents: form.groom_parents.value,
+          instagram: form.groom_instagram.value,
+          photo: form.groom_photo.value
+        },
+        bride: {
+          fullname: form.bride_fullname.value,
+          nickname: form.bride_nickname.value,
+          parents: form.bride_parents.value,
+          instagram: form.bride_instagram.value,
+          photo: form.bride_photo.value
+        },
+        events: {
+          akad: {
+            title: form.event_akad_title.value,
+            subtitle: form.event_akad_subtitle.value,
+            date: form.event_akad_date.value,
+            time: form.event_akad_time.value,
+            venue: form.event_akad_venue.value,
+            address: form.event_akad_address.value,
+            maps_url: form.event_maps_url.value
+          },
+          resepsi: {
+            title: form.event_resepsi_title.value,
+            subtitle: form.event_resepsi_subtitle.value,
+            date: form.event_resepsi_date.value,
+            time: form.event_resepsi_time.value,
+            venue: form.event_resepsi_venue.value,
+            address: form.event_resepsi_address.value,
+            maps_url: form.event_maps_url.value
+          }
+        }
+      };
+
+      currentSettings = Object.assign(currentSettings, data);
+      localStorage.setItem('wedding_settings', JSON.stringify(currentSettings));
+
+      try {
+        await fetch('../api/settings.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } catch (err) {}
+
+      showToast('✅ Detail acara & tanggal berhasil disimpan!');
+      updateDaysToGo();
+    }
+
+    async function saveKutipanSettings(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        general: {
+          greeting_title: form.general_greeting_title.value,
+          greeting_message: form.general_greeting_message.value,
+          love_quote: form.general_love_quote.value,
+          quote_author: form.general_quote_author.value
+        }
+      };
+
+      currentSettings.general = Object.assign(currentSettings.general, data.general);
+      localStorage.setItem('wedding_settings', JSON.stringify(currentSettings));
+
+      try {
+        await fetch('../api/settings.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } catch (err) {}
+
+      showToast('✅ Kutipan & teks sambutan berhasil disimpan!');
+    }
+
+    async function saveHadiahSettings(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        gift: {
+          bca_no: form.gift_bca_no.value,
+          bca_name: form.gift_bca_name.value,
+          dana_no: form.gift_dana_no.value,
+          dana_name: form.gift_dana_name.value,
+          address_recipient: form.gift_recipient.value,
+          address_phone: form.gift_phone.value,
+          address_full: form.gift_address.value
+        }
+      };
+
+      currentSettings.gift = Object.assign(currentSettings.gift, data.gift);
+      localStorage.setItem('wedding_settings', JSON.stringify(currentSettings));
+
+      try {
+        await fetch('../api/settings.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } catch (err) {}
+
+      showToast('✅ Pengaturan rekening & kado berhasil disimpan!');
+    }
+
+    // Comments & Wishes
+    async function loadCommentsData() {
+      try {
+        const res = await fetch('../api/comments.php');
+        if (res.ok) {
+          const contentType = res.headers.get('content-type') || '';
+          if (contentType.includes('json')) {
+            const json = await res.json();
+            if (json.success && Array.isArray(json.data)) {
+              cachedComments = json.data;
+              renderCommentsTable(cachedComments);
+              updateCommentsStats(cachedComments);
+              return;
+            }
+          }
+        }
+      } catch (err) {}
+
+      // Fallback
+      cachedComments = [
+        { id: 1, nama: 'Dinda & Keluarga', hadir: 1, komentar: 'Selamat yaa Evan & Salwa! Semoga bahagia dan samawa selamanya ✨', created_at: '2026-06-10 14:20:00' },
+        { id: 2, nama: 'Budi Santoso', hadir: 1, komentar: 'Lancar-lancar sampai hari H sahabatku Evan!', created_at: '2026-06-10 15:45:00' }
+      ];
+      renderCommentsTable(cachedComments);
+      updateCommentsStats(cachedComments);
+    }
+
+    function updateCommentsStats(list) {
+      const total = list.length;
+      const hadir = list.filter(c => c.hadir == 1).length;
+      const absen = total - hadir;
+
+      document.getElementById('statTotalComments').textContent = total;
+      document.getElementById('statTotalHadir').textContent = hadir;
+      document.getElementById('statTotalAbsen').textContent = absen;
+    }
+
+    function renderCommentsTable(list) {
+      const tbody = document.getElementById('commentsTableBody');
+      if (!tbody) return;
+
+      if (!list.length) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--color-text-muted); padding: 32px;">Belum ada ucapan dari tamu undangan.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = list.map(c => `
+        <tr id="comment-row-${c.id}" data-nama="${(c.nama || '').toLowerCase()}" data-msg="${(c.komentar || '').toLowerCase()}" data-status="${c.hadir == 1 ? 'hadir' : 'absen'}">
+          <td>#${c.id}</td>
+          <td><strong>${escapeHtml(c.nama)}</strong></td>
+          <td>
+            ${c.hadir == 1 ? '<span class="badge-hadir">🟢 Hadir</span>' : '<span class="badge-absen">🔴 Berhalangan</span>'}
+          </td>
+          <td style="white-space: pre-wrap;">${escapeHtml(c.komentar)}</td>
+          <td style="font-size: 0.82rem; color: var(--color-text-muted);">${c.created_at || '-'}</td>
+          <td style="text-align: center;">
+            <button type="button" class="btn-action-del" onclick="deleteComment(${c.id})">
+              🗑️ Hapus
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function deleteComment(id) {
+      if (!confirm('Apakah Anda yakin ingin menghapus ucapan ini?')) return;
+
+      cachedComments = cachedComments.filter(c => c.id != id);
+      renderCommentsTable(cachedComments);
+      updateCommentsStats(cachedComments);
+
+      try {
+        await fetch(`../api/comments.php?action=delete&id=${id}`, { method: 'POST' });
+      } catch (err) {}
+
+      showToast('🗑️ Ucapan berhasil dihapus.');
+    }
+
+    function filterWishesTable() {
+      const query = (document.getElementById('wishesSearch').value || '').toLowerCase();
+      const status = document.getElementById('wishesFilterStatus').value;
+
+      document.querySelectorAll('#commentsTableBody tr').forEach(row => {
+        const nama = row.getAttribute('data-nama') || '';
+        const msg = row.getAttribute('data-msg') || '';
+        const rowStatus = row.getAttribute('data-status') || '';
+
+        const matchQuery = !query || nama.includes(query) || msg.includes(query);
+        const matchStatus = status === 'all' || rowStatus === status;
+
+        row.style.display = (matchQuery && matchStatus) ? '' : 'none';
+      });
+    }
+
+    function exportWishesCsv() {
+      if (!cachedComments.length) {
+        alert('Belum ada data ucapan untuk diunduh.');
+        return;
+      }
+
+      let csv = 'ID,Nama Tamu,Status Kehadiran,Isi Ucapan,Waktu Kirim\n';
+      cachedComments.forEach(c => {
+        const cleanMsg = (c.komentar || '').replace(/"/g, '""');
+        const status = c.hadir == 1 ? 'Hadir' : 'Berhalangan';
+        csv += `"${c.id}","${c.nama}","${status}","${cleanMsg}","${c.created_at}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `ucapan-wedding-evan-salwa-${new Date().toISOString().slice(0,10)}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
+</body>
+</html>
