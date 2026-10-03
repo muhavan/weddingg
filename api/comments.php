@@ -9,10 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // Database configuration
-$host = 'localhost';
-$dbname = 'undangan';
-$username = 'root';
-$password = '';
+$host = '153.92.15.11';
+$dbname = 'u883909247_weddingg';
+$username = 'u883909247_weddingg';
+$password = 'Weddingg@88';
 
 try {
     $pdo = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8mb4", $username, $password, [
