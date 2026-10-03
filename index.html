@@ -1,814 +1,740 @@
 <!DOCTYPE html>
-<html lang="id" class="notranslate" translate="no">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-      <meta name="format-detection" content="telephone=no">
-      <meta name="google" content="notranslate">
-      <title>The Wedding Day Of Evan & Salwa</title>
-      <meta name="title" content="The Wedding Day Of Evan & Salwa">
-      <meta name="description" content="">
-      <meta itemprop="image" content="https://muhavan.github.io/weddingg/assets/images/bgr.jpg">
-      <link rel="icon" type="image/x-icon" href="favicon.ico">
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>The Wedding of Evan &amp; Salwa</title>
+  
+  <meta name="title" content="The Wedding of Evan &amp; Salwa">
+  <meta name="description" content="Undangan Pernikahan Evan Fauzan &amp; Salwa Carelina Maybrella. Minggu, 15 Juni 2026 di Masjid Istiqlal Jakarta.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Wedding of Evan &amp; Salwa">
+  <meta property="og:description" content="Undangan Pernikahan Evan &amp; Salwa. Minggu, 15 Juni 2026 di Masjid Istiqlal Jakarta.">
+  <meta property="og:image" content="assets/images/savan.jpg">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Three.js 3D WebGL Library for 3D Rings -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Nandana Stylesheet -->
+  <link rel="stylesheet" href="assets/css/nandana.css">
+</head>
+
+<body class="modal-open">
+
+  <!-- Audio Pengiring Romantis -->
+  <audio id="weddingAudio" loop preload="auto">
+    <source src="assets/media/LoveIsAVerb.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Tombol Musik Mengambang -->
+  <button id="floatingMusicBtn" class="floating-music-btn" aria-label="Putar / Jeda Musik" title="Musik Undangan">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+    </svg>
+  </button>
+
+  <!-- ===================================================================
+       COVER POPUP MODAL IDENTIK RINGVITATION NANDANA (#elementor-popup-trihod)
+       =================================================================== -->
+  <div id="elementor-popup-trihod" class="popup-trihod-wrapper">
+    
+    <!-- Ornamen Daun Melayang Goyang Kiri & Kanan (Layer 3D) -->
+    <img src="assets/images/nandana/tess-768x821.webp" alt="Botanical Leaf" class="cover-flora cover-flora-topleft opw goyang2">
+    <img src="assets/images/nandana/ggngng-1.webp" alt="Golden Gunungan" class="cover-flora cover-flora-topright opg goyang">
+    <img src="assets/images/nandana/trwet234.webp" alt="Botanical Accent" class="cover-flora cover-flora-bottomleft opw goyang">
+    <img src="assets/images/nandana/dawdy546sdf.webp" alt="Palm Leaf" class="cover-flora cover-flora-bottomright opg goyang2">
+
+    <!-- Kotak Tengah Pembuka Undangan -->
+    <div id="pembuka" class="cover-content-box">
+      <div class="cover-tagline">The Wedding Of</div>
       
-      <!-- Open Graph / Facebook -->
-      <meta property="og:title" content="The Wedding Day Of Evan & Salwa">
-      <meta property="og:description" content="Digital Invitation Website">
-      <meta property="og:image" content="https://muhavan.github.io/weddingg/assets/images/bgr.jpg">
-      <meta property="og:image:type" content="image/jpg">
-      <meta property="og:image:alt" content="https://muhavan.github.io/">
-      <meta property="og:type" content="website">
-      <meta property="og:locale" content="id_ID">
-      <meta property="og:site_name" content="Undangan - Digital">
-      <meta property="og:url" content="https://muhavan.github.io/weddingg/">
-      
-      <!-- css -->
-      <link rel="stylesheet" href="assets/css/splide.min.css">
-      <link rel="stylesheet" href="assets/css/animate.min.css">
-      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-      <link href="assets/css/themes.css" rel="stylesheet">
-      <style>
-         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
-         @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
-         @import url('https://fonts.googleapis.com/css2?family=Sail&display=swap');
-         :root {
-         --inv-bg: #faf3e9;
-         --inv-base: #243a34;
-         --inv-accent: #a66335;
-         --inv-border: #958b7b;
-         --font-base: 'DM Sans', sans-serif;
-         --font-accent: 'Italiana', serif;
-         --font-latin: 'Sail', cursive;
-         --menu-bg: #fffbf7;
-         --menu-inactive: #b8b0a3;
-         --menu-active: #47625a;
-         --btn-color: #ffffff;
-         }
-      </style>
-      <style>
-         @import  url('assets/css/BrittanySignature.css');
-         @import  url('assets/css/fonts.css');
-         @import  url('assets/css/Heatwood.css');
-         .font-brittany-signature {
-         font-family: 'Brittany Signature';
-         line-height: 1.6 !important;
-         }
-         .font-photograph-signature {
-         font-family: 'Photograph Signature';
-         line-height: 1.6 !important;
-         }
-         .font-heatwood {
-         font-family: 'Heatwood';
-         line-height: 3 !important;
-         }
-      </style>
-   </head>
-   <body>
-      <main id="app">
-         <div id="modalOverlay" class="modal-backdrop fade" style="display: none;"></div>
-         <!-- Loader -->
-         <div id="loader" class="loader-wrapper"><span class="loader"><span class="loader-inner"></span></span></div>
-         <!-- music -->
-         <audio id="music" loop="" autoplay="">
-            <source src="assets/media/LoveIsAVerb.mp3">
-         </audio>
-         <!-- end music -->
-         <!-- invitation -->
-         <div id="satuMomen" class="splide not-open" guestName="">
-            <div class="splide__track invitation__track">
-               <ul class="splide__list invitation__list">
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile cover" style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
-                           <div style="width: 100%">
-                              <div>
-                                 <div class="text-center animate__animated animate__fadeInDown animate__slower">
-                                    <h3>Wedding Invitation</h3>
-                                    <div class="editable font-accent color-accent h2 mb-3">Evan &amp; Salwa</div>
-                                    <div class="animate__animated animate__fadeInDown animate__slower image-editable" style="height: 160px; width: 160px; margin: auto; border-radius: 100%; overflow: hidden; margin-bottom: 20px;">
-                                       <img src="assets/images/bg.gif" style="width: 100%;height: 100%;object-fit: cover;" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div class="text-center">
-                                    <div id="guestName" class="editable color-accent h5 font-weight-bold mb-4 animate__animated animate__fadeInUp animate__slower"></div>
-                                   <button type="button" class="btn-open-invitation btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" onclick="getGuestName()">Buka Undangan</button>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
-                           <div>
-                              <div class="animate__animated animate__fadeInRight animate__slower">
-                                 <div class="image-editable" style="width: 248px; margin: auto; overflow: hidden; margin-bottom: 20px; border: 4px solid var(--inv-base);">
-                                    <img src="assets/images/savan.jpg" style="width: 100%;height: 100%;object-fit: cover;" draggable="false">
-                                 </div>
-                              </div>
-                              <div class="text-center animate__animated animate__fadeInUp animate__slower">
-                                 <div class="editable quotes mb-3">Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.</div>
-                                 <div class="editable font-italic">Ar Rum 21</div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="
-                           height: 100%;
-                           ">
-                           <div style="width: 100%">
-                              <div>
-                                 <div style="
-                                    width: 100%;
-                                    margin: auto;
-                                    overflow: hidden;
-                                    margin-bottom: 20px;
-                                    padding-bottom: 57%;
-                                    position: relative;
-                                    " class="embed-video animate__animated animate__fadeInDown animate__slower"><iframe width="560" height="315" src="https://www.youtube.com/embed/moZNGtKcOFg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-                                 <button class="btn-video btn btn-sm btn-pilled btn-block btn-accent mt-1 mb-4">Edit Video</button>
-                                 <div class="text-center animate__animated animate__fadeInUp animate__slower">
-                                    <div class="editable quotes mb-3">Pernikahan bukan tentang menemukan seseorang yang bisa hidup bersamamu, tapi tentang menemukan seseorang <br> yang tidak bisa hidup tanpamu.</div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="
-                           height: 100%;
-                           ">
-                           <div width="100%">
-                              <div class="editable mb-3 text-center animate__animated animate__fadeInDown animate__slower" style="font-size: 14.4px;">Assalamualaikum wr wb<br>Tanpa mengurangi rasa hormat kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara resepsi pernikahan kami:</div>
-                              <div class="d-flex justify-content-center mb-3" style="
-                                 gap: 20px;">
-                                 <div class="image-editable animate__animated animate__fadeInLeft animate__slower" style="
-                                    height: 100px;
-                                    width: 100px;
-                                    border-radius: 100%;
-                                    overflow: hidden;
-                                    background-position: center;
-                                    background-size: contain;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    ">
-                                    <img src="assets/images/cowo.png" style="width: 100%;height: 100%;object-fit: cover;border-radius: 100%;" draggable="false">
-                                 </div>
-                                 <div class="image-editable animate__animated animate__fadeInRight animate__slower" style="
-                                    height: 100px;
-                                    width: 100px;
-                                    border-radius: 100%;
-                                    overflow: hidden;
-                                    background-position: center;
-                                    background-size: contain;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    ">
-                                    <img src="assets/images/cewe.jpeg" style="width: 100%;height: 100%;object-fit: cover;border-radius: 100%;" draggable="false">
-                                 </div>
-                              </div>
-                              <div class="text-center animate__animated animate__fadeInUp animate__slower mb-4">
-                                 <div class="editable font-latin color-accent h4 mb-2">Muhamad Evan Fauzan</div>
-                                 <div class="editable mb-2">Putra Pertama Bapak .....<br>dan Ibu .....</div>
-                                 <div class="text-center font-accent color-accent animate__animated animate__fadeIn animate__slower" style="font-size: 50px;">&amp;</div>
-                              </div>
-                              <div class="text-center animate__animated animate__fadeInUp animate__slower">
-                                 <div class="editable font-latin color-accent h4 mb-2">Salwa Carelina Maybrella</div>
-                                 <div class="editable mb-2" style="font-size: 14.4px;">Putri Dari Bapak .....<br>dan Ibu .....</div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="
-                           height: 100%;
-                           ">
-                           <div style="width: 100%">
-                              <div class="text-center mb-4 animate__animated animate__fadeInLeft animate__slower">
-                                 <div class="editable font-latin color-accent h4 mb-2">Akad Nikah</div>
-                                 <div class="editable ">Minggu, 15 Juni 2025</div>
-                                 <div class="editable ">Pukul  09:00 WIB - Selesai<br></div>
-                                 <div class="editable ">Masjid Istiqlal<br>Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710</div>
-                              </div>
-                              <div class="text-center mb-4 animate__animated animate__fadeInRight animate__slower">
-                                 <div class="editable font-latin color-accent h4 mb-2">Resepsi</div>
-                                 <div class="editable ">Minggu, 15 Juni 2025</div>
-                                 <div class="editable ">Pukul 11:00 WIB - Selesai</div>
-                                 <div class="editable ">Masjid Istiqlal<br>Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710</div>
-                              </div>
-                              <div class="countdown-wrapper d-flex flex-column animate__animated animate__fadeInUp animate__slower" data-datetime="2025-06-15T09:00">
-                                 <div class="countdown text-center">
-                                    <div class="countdown-item day">
-                                       <div class="number">00</div>
-                                       <div class="text editable">Hari</div>
-                                    </div>
-                                    <div class="countdown-item hour">
-                                       <div class="number">00</div>
-                                       <div class="text editable">Jam</div>
-                                    </div>
-                                    <div class="countdown-item minute">
-                                       <div class="number">00</div>
-                                       <div class="text editable">Menit</div>
-                                    </div>
-                                    <div class="countdown-item second">
-                                       <div class="number">00</div>
-                                       <div class="text editable">Detik</div>
-                                    </div>
-                                 </div>
-                                 <button class="btn-countdown btn btn-sm btn-pilled btn-accent mt-2">Atur Countdown</button>
-                              </div>
-                              <div class="text-center">
-                                 <a href="https://calendar.app.google/rGEViNodn64bDCK47" target="_blank" class="btn-reminder btn btn-primary rounded-pill my-3 animate__animated animate__fadeInUp animate__slow" draggable="false">Add to Calendar</a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="
-                           height: 100%;
-                           ">
-                           <div style="
-                              width: 100%;
-                              ">
-                              <div>
-                                 <div style="
-                                    width: 100%;
-                                    margin: auto;
-                                    border-radius: 10px;
-                                    overflow: hidden;
-                                    margin-bottom: 20px;
-                                    padding-bottom: 100%;
-                                    position: relative;
-                                    " class="animate__animated animate__fadeInDown animate__slow">
-                                    <iframe width="100%" height="100%" style="border:0;position: absolute;" loading="lazy" allowfullscreen="" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3966.7161478303365!2d106.8339542!3d-6.1687513!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5ce68b5e01d%3A0xcafaf042d5840c6c!2sIstiqlal%20Mosque!5e0!3m2!1sen!2sid!4v1704641820341!5m2!1sen!2sid" class="maps-embed">
-                                    </iframe>                                    
-                                 </div>
-                                 <button class="btn-maps btn btn-sm btn-pilled btn-block btn-accent mt-1 mb-4">Edit Denah Lokasi</button>
-                                 <div class="text-center animate__animated animate__fadeInUp animate__slow">
-                                    <div class="editable mb-3" style="font-size: 14.4px;">Masjid Istiqlal<br>Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710</div>
-                                    <a href="https://maps.app.goo.gl/SGwtYZqm3dLAxDAb9" class="btn-maps-link btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" target="_blank" draggable="false">Lihat Google Maps</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
-                           <div style="width: 100%;">
-                              <div class="text-center mb-4 animate__animated animate__fadeInDown animate__slower">
-                                 <div class="font-latin color-accent h4 mb-2 editable" style="font-size: 28.8px;">Galeri Foto Mempelai</div>
-                              </div>
-                              <div class="image-editable d-flex flex-wrap">
-                                 <div style="width: 33.333%;overflow: hidden;padding: 4px;" class="animate__animated animate__zoomIn animate__slower">
-                                    <div class="light" style=" overflow: hidden; width: 100%; height: 100px; ">
-                                       <img src="assets/images/savan.jpg" style="width: 100%;height: 100%;object-fit: cover;" class="lightbox" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div style="width: 33.333%;overflow: hidden;padding: 4px;" class="animate__animated animate__zoomIn animate__slower">
-                                    <div class="" style=" overflow: hidden; width: 100%; height: 100px; ">
-                                       <img src="assets/images/savan.jpg" style="width: 100%;height: 100%;object-fit: cover;" class="lightbox" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div style="width: 33.333%;overflow: hidden;padding: 4px;" class="animate__animated animate__zoomIn animate__slower">
-                                    <div class="" style="overflow: hidden; width: 100%; height: 100px;">
-                                       <img src="assets/images/savan.jpg" style="width: 100%;height: 100%;object-fit: cover;" class="lightbox" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div style="width: 50%;overflow: hidden;padding: 4px;" class="animate__animated animate__zoomIn animate__slower">
-                                    <div class="" style=" overflow: hidden; width: 100%; height: 100px; ">
-                                       <img src="assets/images/savan.jpg" style="width: 100%;height: 100%;object-fit: cover;" class="lightbox" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div style="width: 50%;overflow: hidden;padding: 4px;" class="animate__animated animate__zoomIn animate__slower">
-                                    <div class="" style=" overflow: hidden; width: 100%; height: 100px; ">
-                                       <img src="assets/images/savan.jpg" style="width: 100%;height: 100%;object-fit: cover;" class="lightbox" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div style="width: 33.333%;overflow: hidden;padding: 4px;" class="animate__animated animate__zoomIn animate__slower">
-                                    <div class="" style="  overflow: hidden; width: 100%; height: 100px; ">
-                                       <img src="assets/images/savan.jpg" style="width: 100%;height: 100%;object-fit: cover;" class="lightbox" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div style="width: 33.333%;overflow: hidden;padding: 4px;" class="animate__animated animate__zoomIn animate__slower">
-                                    <div class="" style=" overflow: hidden; width: 100%; height: 100px; ">
-                                       <img src="assets/images/savan.jpg" style="width: 100%;height: 100%;object-fit: cover;" class="lightbox" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div style="width: 33.333%;overflow: hidden;padding: 4px;" class="animate__animated animate__zoomIn animate__slower">
-                                    <div class="" style=" overflow: hidden;  width: 100%; height: 100px;  object-fit: cover; ">
-                                       <img src="assets/images/savan.jpg" style="width: 100%;height: 100%;object-fit: cover;" class="lightbox" draggable="false">
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="
-                           height: 100%;
-                           ">
-                           <div style="width: 100%" class="text-center">
-                              <div class="editable font-latin color-accent h4 mb-4 animate__animated animate__fadeInDown animate__slower">
-                                 Live Streaming
-                              </div>
-                              <div class="editable animate__animated animate__fadeInUp animate__slower">Temui Kami secara virtual untuk menyaksikan acara pernikahan kami yang InsyaAllah kan disiarkan langsung melalui akun Instagram atau silakan join meeting melalui zoom berikut ini.</div>
-                              <div class="d-flex justify-content-center mt-3">
-                                 <div class="image-editable animate__animated animate__fadeInDown animate__slower m-2" style="
-                                    height: 90px;
-                                    width: 90px;
-                                    border-radius: 10px;
-                                    overflow: hidden;
-                                    ">
-                                    <img src="assets/images/2048px-Instagram_icon.png" style="width: 100%;height: 100%;object-fit: cover;" draggable="false">
-                                 </div>
-                              </div>
-                              <a href="https://instagram.com/muhavann" target="_blank" class="link btn btn-primary rounded-pill my-3 animate__animated animate__fadeInUp animate__slow" draggable="false">Join Live Streaming</a>
-                              <div class="editable animate__animated animate__fadeInUp animate__slower" style="font-size: 14.4px;">Instagram : @muhavann<br>Zoom Meeting ID : 123456789</div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="
-                           height: 100%;
-                           ">
-                           <div width="100%">
-                              <div class="font-latin text-center color-accent h4 mb-2 editable animate__animated animate__fadeInDown animate__slower">Contact Person</div>
-                              <div class="editable mb-4 text-center animate__animated animate__fadeInUp animate__slower">Hubungi Contact Person kami jika ada hal<br>yang ingin ditanyakan.</div>
-                              <div class="text-center animate__animated animate__fadeInUp animate__slower mb-4">
-                                 <div class="image-editable animate__animated animate__fadeInUp animate__slower" style="height: 100px; width: 100px; margin: auto; border-radius: 100%; overflow: hidden; margin-bottom: 10px;">
-                                    <img src="assets/images/cowo.png" style="width: 100%;height: 100%;object-fit: cover;" draggable="false">
-                                 </div>
-                                 <div class="editable font-latin color-accent h4 mb-2 animate__animated animate__fadeInUp animate__slower">Muhamad Evan</div>
-                                 <a class="link btn btn-primary rounded-pill animate__animated animate__fadeInUp animate__slower" href="https://instagram.com/muhavann" target="_blank" draggable="false">Instagram</a>
-                              </div>
-                              <div class="text-center animate__animated animate__fadeInUp animate__slower">
-                                 <div class="image-editable animate__animated animate__fadeInUp animate__slower" style="height: 100px; width: 100px; margin: auto; border-radius: 100%; overflow: hidden; margin-bottom: 10px;">
-                                    <img src="assets/images/cewe.jpeg" style="width: 100%;height: 100%;object-fit: cover;" draggable="false">
-                                 </div>
-                                 <div class="editable font-latin color-accent h4 mb-2 animate__animated animate__fadeInUp animate__slower" style="font-size: 28.8px;">Salwa Carelina Maybrella</div>
-                                 <a class="link btn btn-primary rounded-pill animate__animated animate__fadeInUp animate__slower" href="https://instagram.com/salwacarel_" target="_blank" draggable="false">Instagram</a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile" style="background-image: url(assets/images/bg.jpg);">
-                         <div class="frame">
-                             <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                             <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                             <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                             <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                         </div>
-                         <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
-                             <div style="width: 100%;" class="text-center">
-                                 <div class="font-latin color-accent h4 mb-2 editable animate__animated animate__fadeInDown animate__slower">Kirim Hadiah</div>
-                                 <div class="editable mb-4 animate__animated animate__fadeInDown animate__slower">Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberi hadiah kami sediakan fitur berikut</div>
-                                 <div style="display: flex;">
-                                     <button type="button" class="btn-gift btn btn-block btn-primary rounded-pill animate__animated animate__fadeInUp animate__slow" style="max-width: 150px; margin: auto;">🎁 Cashless</button>
-                                     <button type="button" class="btn-gift btn btn-block btn-primary rounded-pill animate__animated animate__fadeInUp animate__slow" style="max-width: 150px; margin: auto;">🎁 Kirim Kado</button>
-                                 </div>
-                                 <div class="gift-container mt-3 p-4 rounded animate__animated animate__zoomIn animate__slow">
-                                    <div style="height: 150px; width: 100%; max-width: 150px; margin: auto; overflow: hidden; margin-bottom: 20px; border-radius: 10px;" class="image-editable">
-                                        <a href="wedding/assets/images/dana.jpg" class="lightbox">
-                                            <img class="mb-4" src="assets/images/dana.jpg" style="width: 100%; height: 100%; object-fit: cover;" draggable="false">
-                                        </a>
-                                    </div>
-                                    <div class="d-flex">
-                                       <div class="mx-auto">
-                                          <div class="d-flex align-items-center mb-3">
-                                             <div style="width:80px;overflow: hidden;" class="image-editable">
-                                                <img src="assets/images/bca.png" style="width: 100%;height: 100%;object-fit: contain;" draggable="false">
-                                             </div>
-                                             <div class="text-left pl-2">
-                                                <div class="editable account-number font-weight-bold h5 mb-0" style="font-size: 18px;">12345678</div>
-                                                <div class="editable" style="font-size: 14.4px;">BCA : EVAN</div>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center">
-                                             <div class="text-left pl-2">
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="gift-container mt-3 p-4 rounded animate__animated animate__zoomIn animate__slow" style="
-                                    ">
-                                    <div class="text-center mb-2">
-                                       <div class="editable font-weight-bold h5 color-accent mb-2">Kirim Kado</div>
-                                       <div class="editable mb-0" style="font-size: 14.4px;">Anda dapat mengirim kado ke:<br>Masjid Istiqlal, Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710</div>
-                                    </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </li>                 
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="height: 100%">
-                           <div style="width: 100%;">
-                              <div>
-                                 <div class="animate__animated animate__fadeInRight animate__slower">
-                                    <div class="image-editable" style="
-                                       width: 248px;
-                                       height: 195px;
-                                       margin: auto;
-                                       overflow: hidden;
-                                       transform: translate(15px, 24px) rotate(356deg);
-                                       border: 4px solid var(--inv-border);
-                                       ">
-                                       <img src="assets/images/cowo.png" style="width: 100%; height: 100%; object-fit: cover" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div class="animate__animated animate__fadeInLeft animate__slower">
-                                    <div class="image-editable" style="
-                                       width: 248px;
-                                       height: 195px;
-                                       margin: auto;
-                                       overflow: hidden;
-                                       margin-bottom: 20px;
-                                       transform: translate(-7px, 0px) rotate(2deg);
-                                       border: 4px solid var(--inv-border);
-                                       ">
-                                       <img src="assets/images/cewe.jpeg" style="width: 100%; height: 100%; object-fit: cover" draggable="false">
-                                    </div>
-                                 </div>
-                                 <div class="text-center">
-                                    <div class="editable mb-4 animate__animated animate__fadeInUp animate__slower" style="font-size: 14.4px;">Kirim ucapan untuk mempelai<br>dan konfirmasi kehadiran</div>
-                                    <a href="https://wa.me/+6285718945476" target="_blank" type="button" class="btn-rsvp btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" style="font-size: 14.4px;">Kirim Ucapanmu disini</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="splide__slide invitation__slide">
-                     <div class="container-mobile " style="background-image: url(assets/images/bg.jpg); ;">
-                        <div class="frame">
-                           <img class="frame-tl animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tl-2.png" alt="frame">
-                           <img class="frame-tr animate__animated animate__fadeInDown animate__slower" src="assets/images/frame-tr.png" alt="frame" style="width: 30%;">
-                           <img class="frame-bl animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-bl.png" alt="frame" style="width: 30%;">
-                           <img class="frame-br animate__animated animate__fadeInUp animate__slower" src="assets/images/frame-br-2.png" alt="frame" style="width: 45%;">
-                        </div>
-                        <div class="watermark d-flex justify-content-center align-items-center" style="
-                           height: 100%;
-                           ">
-                           <div swtyle="width: 100%">
-                              <div class="text-center">
-                                 <div class="editable quotes mb-3 animate__animated animate__fadeInDown animate__slower">Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do'a restu.</div>
-                                 <div class="editable font-italic animate__animated animate__fadeInDown animate__slow">Hormat Kami Yang Mengundang</div>
-                                 <div class="editable font-accent h1 color-accent animate__animated animate__fadeInDown animate__slow">Evan &amp; Salwa</div>
-                                 <div class="watermark-placeholder mt-5"></div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-               </ul>
+      <!-- Bingkai Arch Foto Pengantin -->
+      <div class="cover-arch-frame">
+        <img src="assets/images/savan.jpg" alt="Evan dan Salwa Pengantin">
+      </div>
+
+      <h1 class="cover-couple-names">Evan &amp; Salwa</h1>
+      <div class="cover-wedding-date">Minggu, 15 Juni 2026</div>
+
+      <!-- Kotak Nama Tamu Undangan -->
+      <div class="cover-guest-card">
+        <div class="cover-guest-label">Kepada Yth. Bapak/Ibu/Saudara/i:</div>
+        <div id="coverGuestName" class="cover-guest-name">Bapak/Ibu/Saudara/i</div>
+      </div>
+
+      <!-- Tombol Buka Undangan (#toot) -->
+      <a href="#" id="toot" class="btn-buka-undangan" role="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        <span>Buka Undangan</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       LAYOUT UTAMA: DESKTOP SPLIT PANEL (>= 1024px) & STORY STREAM
+       =================================================================== -->
+  <div class="nandana-app-wrapper">
+
+    <!-- DESKTOP STICKY LEFT HERO PANEL -->
+    <aside class="nandana-desktop-panel">
+      <div class="desktop-inner-content">
+        <img src="assets/images/nandana/ggngng-1.webp" alt="Gunungan Crest" class="desktop-ornament-art">
+        <div class="desktop-wedding-tag">The Wedding Of</div>
+        <h2 class="desktop-couple-title">Evan &amp; Salwa</h2>
+
+        <!-- Foto Pengantin Arch di Desktop -->
+        <div class="hero-arch-wrapper" style="width: 150px; height: 200px; margin: 15px auto; border-color: rgba(197, 160, 89, 0.7); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          <img src="assets/images/savan.jpg" alt="Evan &amp; Salwa">
+        </div>
+
+        <p class="desktop-quote-text">
+          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."
+        </p>
+        <div class="desktop-date-pill">
+          <span>✦ Minggu, 15 Juni 2026 &bull; Masjid Istiqlal Jakarta ✦</span>
+        </div>
+
+        <div style="margin-top: 24px; padding: 16px 20px; background: rgba(255, 255, 255, 0.08); border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.35);">
+          <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 4px;">Kepada Yth. Bapak/Ibu/Saudara/i:</div>
+          <div id="desktopGuestName" style="font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700; color: #ffffff;">Tamu Undangan</div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.82rem; color: rgba(255, 255, 255, 0.6); border-top: 1px solid rgba(197, 160, 89, 0.3); padding-top: 16px; text-align: center;">
+        The Wedding of Evan &amp; Salwa
+      </div>
+    </aside>
+
+    <!-- RIGHT STORY STREAM (KONTEN UTAMA) -->
+    <main class="nandana-story-stream">
+      <div class="stream-inner-container">
+
+        <!-- 1. HERO STREAM BANNER (#hom) -->
+        <section id="hom" class="hero-stream-banner opx fadeZoomOut">
+          <img src="assets/images/nandana/orn12ww.webp" alt="Top Crest" class="hero-crest-top">
+          
+          <div class="hero-arch-wrapper">
+            <img src="assets/images/savan.jpg" alt="Evan &amp; Salwa">
+          </div>
+
+          <div class="hero-wedding-of">The Wedding Of</div>
+          <h1 class="hero-names-title">Evan &amp; Salwa</h1>
+          <p class="hero-date-text">Minggu, 15 Juni 2026</p>
+        </section>
+
+        <!-- 2. AYAT SUCI & MUKADIMAH (#ayat) -->
+        <section id="ayat" class="nandana-section muncul">
+          <div class="ayat-box">
+            <img src="assets/images/nandana/top-devidewer.png" alt="Top Divider" class="head-divider-img" style="margin-bottom: 16px;">
+            <div class="bismillah-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <h2 class="salam-text">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
+            <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 12px;">
+              Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
+            </p>
+
+            <p class="ayat-quote-body">
+              "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
+            </p>
+            <div class="ayat-surah-ref">— QS. Ar-Rum: 21 —</div>
+            <img src="assets/images/nandana/Untitled-1.png" alt="Bottom Divider" class="head-divider-img" style="margin-top: 18px;">
+          </div>
+        </section>
+
+        <!-- 3. KEDUA MEMPELAI (THE COUPLE) (#mempelai) -->
+        <section id="mempelai" class="nandana-section">
+          <div class="section-head muncul">
+            <span class="head-subtitle">The Happy Couple</span>
+            <h2 class="head-title">Kedua Mempelai</h2>
+            <img src="assets/images/nandana/top-devidewer.png" alt="Divider" class="head-divider-img">
+          </div>
+
+          <div class="couple-cards-stack">
+            <!-- Mempelai Pria -->
+            <div class="nandana-card couple-profile-box muncul-kiri">
+              <div class="couple-photo-arch">
+                <img src="assets/images/cowo.png" alt="Muhamad Evan Fauzan">
+              </div>
+              <h3 class="couple-fullname">Muhamad Evan Fauzan</h3>
+              <span class="couple-nickname">Evan</span>
+              <p class="couple-parents">
+                Putra Pertama dari<br>
+                <strong>Bapak Fauzan</strong> &amp; <strong>Ibu ...</strong>
+              </p>
+              <a href="https://instagram.com/muhavann" target="_blank" rel="noopener noreferrer" class="couple-ig-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>@muhavann</span>
+              </a>
             </div>
-         </div>
-         <div id="menuSlider" class="splide">
-            <div class="splide__track menu-track">
-               <ul class="splide__list menu-list">
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9.144 20.782v-3.067c0-.777.632-1.408 1.414-1.413h2.875c.786 0 1.423.633 1.423 1.413v3.058c0 .674.548 1.222 1.227 1.227h1.96a3.46 3.46 0 0 0 2.444-1 3.41 3.41 0 0 0 1.013-2.422V9.866c0-.735-.328-1.431-.895-1.902l-6.662-5.29a3.115 3.115 0 0 0-3.958.071L3.467 7.963A2.474 2.474 0 0 0 2.5 9.867v8.703C2.5 20.464 4.047 22 5.956 22h1.916c.327.002.641-.125.873-.354.232-.228.363-.54.363-.864h.036Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Opening</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity=".4" d="M16.191 2H7.81C4.77 2 3 3.78 3 6.83v10.33C3 20.26 4.77 22 7.81 22h8.381C19.28 22 21 20.26 21 17.16V6.83C21 3.78 19.28 2 16.191 2" fill="currentColor"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.08 6.65v.01a.78.78 0 0 0 0 1.56h2.989c.431 0 .781-.35.781-.791a.781.781 0 0 0-.781-.779H8.08Zm7.84 6.09H8.08a.78.78 0 0 1 0-1.561h7.84a.781.781 0 0 1 0 1.561Zm0 4.57H8.08c-.3.04-.59-.11-.75-.36a.795.795 0 0 1 .75-1.21h7.84c.399.04.7.38.7.79 0 .399-.301.74-.7.78Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Quotes</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity=".4" d="M21.33 7.443a1.383 1.383 0 0 0-1.372-.064l-1.482.748a1.618 1.618 0 0 0-.888 1.456v5.833c0 .622.34 1.179.888 1.457l1.48.747c.202.104.417.153.632.153.258 0 .514-.073.743-.216.419-.263.669-.718.669-1.218V8.662c0-.5-.25-.956-.67-1.22Z" fill="currentColor"></path>
-                        <path d="M11.905 20H6.113C3.691 20 2 18.33 2 15.94V9.06C2 6.67 3.691 5 6.113 5h5.792c2.422 0 4.113 1.669 4.113 4.06v6.88c0 2.39-1.69 4.06-4.113 4.06Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Video</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity=".4" d="M11.776 21.837a36.258 36.258 0 0 1-6.328-4.957 12.668 12.668 0 0 1-3.03-4.805C1.278 8.535 2.603 4.49 6.3 3.288A6.282 6.282 0 0 1 12.007 4.3a6.291 6.291 0 0 1 5.706-1.012c3.697 1.201 5.03 5.247 3.893 8.787a12.67 12.67 0 0 1-3.013 4.805 36.58 36.58 0 0 1-6.328 4.957l-.25.163-.24-.163Z" fill="currentColor"></path>
-                        <path d="m12.01 22-.234-.163a36.316 36.316 0 0 1-6.337-4.957 12.667 12.667 0 0 1-3.048-4.805c-1.13-3.54.195-7.586 3.892-8.787a6.296 6.296 0 0 1 5.728 1.023V22ZM18.23 10a.719.719 0 0 1-.517-.278.818.818 0 0 1-.167-.592c.022-.702-.378-1.341-.994-1.59-.391-.107-.628-.53-.53-.948.093-.41.477-.666.864-.573a.384.384 0 0 1 .138.052c1.236.476 2.036 1.755 1.973 3.155a.808.808 0 0 1-.23.56.708.708 0 0 1-.537.213Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Mempelai</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 16.87V9.257h18v7.674C21 20.07 19.024 22 15.863 22H8.127C4.996 22 3 20.03 3 16.87Zm4.96-2.46a.822.822 0 0 1-.85-.799c0-.46.355-.84.81-.861.444 0 .81.351.82.8a.822.822 0 0 1-.78.86Zm4.06 0a.822.822 0 0 1-.85-.799c0-.46.356-.84.81-.861.445 0 .81.351.82.8a.822.822 0 0 1-.78.86Zm4.03 3.68a.847.847 0 0 1-.82-.85.831.831 0 0 1 .81-.849h.01c.465 0 .84.38.84.849 0 .47-.375.85-.84.85Zm-4.88-.85c.02.46.395.821.85.8a.821.821 0 0 0 .78-.859.817.817 0 0 0-.82-.801.855.855 0 0 0-.81.86Zm-4.07 0c.02.46.395.821.85.8a.821.821 0 0 0 .78-.859.817.817 0 0 0-.82-.801.855.855 0 0 0-.81.86Zm8.14-3.639c0-.46.356-.83.81-.84.445 0 .8.359.82.8a.82.82 0 0 1-.79.849.814.814 0 0 1-.84-.799v-.01Z" fill="currentColor"></path>
-                        <path opacity=".4" d="M3.003 9.257c.013-.587.063-1.752.156-2.127.474-2.11 2.084-3.45 4.386-3.64h8.911c2.282.2 3.912 1.55 4.386 3.64.092.365.142 1.539.155 2.127H3.003Z" fill="currentColor"></path>
-                        <path d="M8.305 6.59c.435 0 .76-.329.76-.77V2.771A.748.748 0 0 0 8.306 2c-.435 0-.76.33-.76.771V5.82c0 .441.325.77.76.77ZM15.695 6.59c.425 0 .76-.329.76-.77V2.771a.754.754 0 0 0-.76-.771c-.435 0-.76.33-.76.771V5.82c0 .441.325.77.76.77Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Acara</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.532 2.937a6.89 6.89 0 0 1 7.034.058C17.71 4.327 19.012 6.705 19 9.26c-.05 2.54-1.447 4.929-3.193 6.775a18.727 18.727 0 0 1-3.358 2.82 1.173 1.173 0 0 1-.408.144.82.82 0 0 1-.39-.119 18.515 18.515 0 0 1-4.839-4.547A9.28 9.28 0 0 1 5 9.134c-.001-2.562 1.347-4.928 3.532-6.197Zm1.262 7.258a2.378 2.378 0 0 0 2.198 1.497 2.339 2.339 0 0 0 1.683-.701c.446-.454.696-1.07.694-1.713a2.423 2.423 0 0 0-1.462-2.243 2.346 2.346 0 0 0-2.594.52 2.455 2.455 0 0 0-.519 2.64Z" fill="currentColor"></path>
-                        <ellipse opacity=".4" cx="12" cy="21" rx="5" ry="1" fill="currentColor"></ellipse>
-                     </svg>
-                     <span>Maps</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22 14.702v1.384c0 .23-.01.461-.03.69-.28 3.16-2.475 5.224-5.641 5.224H7.67c-1.603 0-2.956-.52-3.928-1.464a4.593 4.593 0 0 1-.951-1.232c.33-.402.7-.842 1.062-1.283a98.56 98.56 0 0 0 1.573-1.925c.55-.682 2.004-2.476 4.018-1.634.41.17.771.41 1.102.621.812.542 1.152.702 1.723.391.632-.34 1.043-1.012 1.473-1.714.23-.372.461-.732.712-1.063 1.092-1.423 2.775-1.804 4.178-.962.702.42 1.303.952 1.864 1.493.12.12.24.231.35.341.15.15.652.652 1.153 1.133Z" fill="currentColor"></path>
-                        <path opacity=".4" d="M16.339 2H7.67C4.275 2 2 4.376 2 7.914v8.172c0 1.232.28 2.326.792 3.218.33-.402.701-.842 1.062-1.284a95.981 95.981 0 0 0 1.573-1.924c.551-.682 2.004-2.476 4.018-1.634.41.17.771.41 1.102.621.812.542 1.152.702 1.723.39.632-.34 1.043-1.011 1.473-1.714.23-.37.461-.73.712-1.062 1.092-1.423 2.775-1.804 4.178-.962.702.42 1.303.952 1.864 1.493.12.12.24.231.35.342.151.149.652.65 1.153 1.133V7.914C22 4.376 19.726 2 16.339 2Z" fill="currentColor"></path>
-                        <path d="M11.454 8.797a2.604 2.604 0 0 1-2.58 2.581c-1.408 0-2.58-1.173-2.58-2.581s1.172-2.582 2.58-2.582c1.407 0 2.58 1.174 2.58 2.582Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Gallery</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity=".4" d="M21.33 7.443a1.383 1.383 0 0 0-1.372-.064l-1.482.748a1.618 1.618 0 0 0-.888 1.456v5.833c0 .622.34 1.179.888 1.457l1.48.747c.202.104.417.153.632.153.258 0 .514-.073.743-.216.419-.263.669-.718.669-1.218V8.662c0-.5-.25-.956-.67-1.22Z" fill="currentColor"></path>
-                        <path d="M11.905 20H6.113C3.691 20 2 18.33 2 15.94V9.06C2 6.67 3.691 5 6.113 5h5.792c2.422 0 4.113 1.669 4.113 4.06v6.88c0 2.39-1.69 4.06-4.113 4.06Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Live</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity=".4" d="M12.02 2C6.21 2 2 6.74 2 12c0 1.68.49 3.41 1.35 4.99.16.26.18.59.07.9l-.67 2.24c-.15.54.31.94.82.78l2.02-.6c.55-.18.98.05 1.491.36 1.46.86 3.279 1.3 4.919 1.3 4.96 0 10-3.83 10-10C22 6.65 17.7 2 12.02 2Z" fill="currentColor"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.98 13.29c-.71-.01-1.28-.58-1.28-1.29 0-.7.58-1.28 1.28-1.27.71 0 1.28.57 1.28 1.28 0 .7-.57 1.28-1.28 1.28Zm-4.61 0c-.7 0-1.28-.58-1.28-1.28 0-.71.57-1.28 1.28-1.28.71 0 1.28.57 1.28 1.28 0 .7-.57 1.27-1.28 1.28Zm7.94-1.28c0 .7.57 1.28 1.28 1.28.71 0 1.28-.58 1.28-1.28 0-.71-.57-1.28-1.28-1.28-.71 0-1.28.57-1.28 1.28Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Contact</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity=".4" d="M16.191 2H7.81C4.77 2 3 3.78 3 6.83v10.33C3 20.26 4.77 22 7.81 22h8.381C19.28 22 21 20.26 21 17.16V6.83C21 3.78 19.28 2 16.191 2" fill="currentColor"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.08 6.65v.01a.78.78 0 0 0 0 1.56h2.989c.431 0 .781-.35.781-.791a.781.781 0 0 0-.781-.779H8.08Zm7.84 6.09H8.08a.78.78 0 0 1 0-1.561h7.84a.781.781 0 0 1 0 1.561Zm0 4.57H8.08c-.3.04-.59-.11-.75-.36a.795.795 0 0 1 .75-1.21h7.84c.399.04.7.38.7.79 0 .399-.301.74-.7.78Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Gift</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity=".4" d="M12.02 2C6.21 2 2 6.74 2 12c0 1.68.49 3.41 1.35 4.99.16.26.18.59.07.9l-.67 2.24c-.15.54.31.94.82.78l2.02-.6c.55-.18.98.05 1.491.36 1.46.86 3.279 1.3 4.919 1.3 4.96 0 10-3.83 10-10C22 6.65 17.7 2 12.02 2Z" fill="currentColor"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.98 13.29c-.71-.01-1.28-.58-1.28-1.29 0-.7.58-1.28 1.28-1.27.71 0 1.28.57 1.28 1.28 0 .7-.57 1.28-1.28 1.28Zm-4.61 0c-.7 0-1.28-.58-1.28-1.28 0-.71.57-1.28 1.28-1.28.71 0 1.28.57 1.28 1.28 0 .7-.57 1.27-1.28 1.28Zm7.94-1.28c0 .7.57 1.28 1.28 1.28.71 0 1.28-.58 1.28-1.28 0-.71-.57-1.28-1.28-1.28-.71 0-1.28.57-1.28 1.28Z" fill="currentColor"></path>
-                     </svg>
-                     <span>RSVP</span>
-                  </li>
-                  <li class="splide__slide menu-item">
-                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity=".4" d="M16.34 2H7.67C4.28 2 2 4.38 2 7.92v8.17C2 19.62 4.28 22 7.67 22h8.67c3.39 0 5.66-2.38 5.66-5.91V7.92C22 4.38 19.73 2 16.34 2Z" fill="currentColor"></path>
-                        <path d="M10.813 15.248a.872.872 0 0 1-.619-.256l-2.373-2.373a.874.874 0 1 1 1.237-1.238l1.755 1.755 4.128-4.128a.874.874 0 1 1 1.237 1.238l-4.746 4.746a.872.872 0 0 1-.619.256Z" fill="currentColor"></path>
-                     </svg>
-                     <span>Thanks</span>
-                  </li>
-               </ul>
+
+            <!-- Mempelai Wanita -->
+            <div class="nandana-card couple-profile-box muncul-kanan">
+              <div class="couple-photo-arch">
+                <img src="assets/images/cewe.jpeg" alt="Salwa Carelina Maybrella">
+              </div>
+              <h3 class="couple-fullname">Salwa Carelina Maybrella</h3>
+              <span class="couple-nickname">Salwa</span>
+              <p class="couple-parents">
+                Putri Tercinta dari<br>
+                <strong>Bapak ...</strong> &amp; <strong>Ibu ...</strong>
+              </p>
+              <a href="https://instagram.com/salwacarel_" target="_blank" rel="noopener noreferrer" class="couple-ig-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>@salwacarel_</span>
+              </a>
             </div>
-         </div>
-         <!-- end invitation -->
-         <div style="max-width: 500px; margin: auto; position:fixed; left: calc(100% - 60px); right: 0; bottom: 60px; gap:12px" class="d-flex align-items-end flex-column px-3 pb-3">
-            <button id="btnQrModal" onclick="showModal(qrModal)" class="btn btn-float ">
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path fill-rule="evenodd" d="M3 4.875C3 3.839 3.84 3 4.875 3h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 0 1 3 9.375v-4.5zM4.875 4.5a.375.375 0 0 0-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 0 0 .375-.375v-4.5a.375.375 0 0 0-.375-.375h-4.5zm7.875.375c0-1.036.84-1.875 1.875-1.875h4.5C20.16 3 21 3.84 21 4.875v4.5c0 1.036-.84 1.875-1.875 1.875h-4.5a1.875 1.875 0 0 1-1.875-1.875v-4.5zm1.875-.375a.375.375 0 0 0-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 0 0 .375-.375v-4.5a.375.375 0 0 0-.375-.375h-4.5zM6 6.75A.75.75 0 0 1 6.75 6h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75A.75.75 0 0 1 6 7.5v-.75zm9.75 0A.75.75 0 0 1 16.5 6h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75zM3 14.625c0-1.036.84-1.875 1.875-1.875h4.5c1.036 0 1.875.84 1.875 1.875v4.5c0 1.035-.84 1.875-1.875 1.875h-4.5A1.875 1.875 0 0 1 3 19.125v-4.5zm1.875-.375a.375.375 0 0 0-.375.375v4.5c0 .207.168.375.375.375h4.5a.375.375 0 0 0 .375-.375v-4.5a.375.375 0 0 0-.375-.375h-4.5zm7.875-.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75zm6 0a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75zM6 16.5a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75zm9.75 0a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75zm-3 3a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75zm6 0a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1-.75-.75v-.75z" clip-rule="evenodd"></path>
-               </svg>
-            </button>
-            <button id="btnMusic" onclick="playMusic()" class="btn btn-float ">
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path fill-rule="evenodd" d="M19.952 1.651a.75.75 0 0 1 .298.599v14.053a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.403-4.909l2.311-.66a1.5 1.5 0 0 0 1.088-1.442V6.994l-9 2.572v9.737a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.402-4.909l2.31-.66a1.5 1.5 0 0 0 1.088-1.442V5.25a.75.75 0 0 1 .544-.721l10.5-3a.75.75 0 0 1 .658.122z" clip-rule="evenodd"></path>
-               </svg>
-            </button>
-         </div>
-         <!-- lightbox -->
-         <div id="lightboxWrapper" class="lightbox-wrapper">
-            <div class="lightbox-list"></div>
-            <a href="#" id="lightboxCloseBtn" class="btn-lightbox">
-               <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 0 1 1.414 0L10 8.586l4.293-4.293a1 1 0 1 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 0 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L8.586 10 4.293 5.707a1 1 0 0 1 0-1.414z" clip-rule="evenodd"></path>
-               </svg>
+          </div>
+        </section>
+
+        <!-- 4. INTERACTIVE 3D WEDDING RINGS SHOWCASE (WEBGL CANVAS) -->
+        <section id="ring3d" class="nandana-section muncul">
+          <div class="rings-3d-container">
+            <canvas id="ringsCanvas"></canvas>
+            <div class="rings-overlay-label">✦ Dua Hati Terikat Dalam Satu Janji Suci ✦</div>
+          </div>
+        </section>
+
+        <!-- 5. SAVE THE DATE & COUNTDOWN (#countdown) -->
+        <section id="countdown" class="nandana-section muncul">
+          <div class="nandana-card text-center" style="text-align: center;">
+            <span class="head-subtitle">Save The Date</span>
+            <h2 class="head-title">Menghitung Hari</h2>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem;">
+              Kami menantikan kehadiran Bapak/Ibu/Saudara/i di hari bahagia kami:
+            </p>
+
+            <div class="countdown-grid">
+              <div class="countdown-box">
+                <div id="countDays" class="countdown-number">00</div>
+                <div class="countdown-label">Hari</div>
+              </div>
+              <div class="countdown-box">
+                <div id="countHours" class="countdown-number">00</div>
+                <div class="countdown-label">Jam</div>
+              </div>
+              <div class="countdown-box">
+                <div id="countMinutes" class="countdown-number">00</div>
+                <div class="countdown-label">Menit</div>
+              </div>
+              <div class="countdown-box">
+                <div id="countSeconds" class="countdown-number">00</div>
+                <div class="countdown-label">Detik</div>
+              </div>
+            </div>
+
+            <a href="https://calendar.app.google/rGEViNodn64bDCK47" target="_blank" rel="noopener noreferrer" class="btn-calendar-add">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <span>Tambahkan ke Google Calendar</span>
             </a>
-            <div class="lightbox-navigation">
-               <a href="#" id="lightboxPrevBtn" class="lightbox-arrow" data-index="0">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"></path>
+          </div>
+        </section>
+
+        <!-- 6. RANGKAIAN ACARA (EVENTS) (#acara) -->
+        <section id="acara" class="nandana-section">
+          <div class="section-head muncul">
+            <span class="head-subtitle">Wedding Events</span>
+            <h2 class="head-title">Rangkaian Acara</h2>
+            <img src="assets/images/nandana/top-devidewer.png" alt="Divider" class="head-divider-img">
+          </div>
+
+          <!-- Akad Nikah -->
+          <div class="nandana-card event-card-nandana muncul">
+            <div class="event-icon-badge">💍</div>
+            <h3 class="event-title-main">Akad Nikah</h3>
+            <div class="event-subtitle-sub">Ijab Qabul &amp; Khutbah Nikah</div>
+
+            <ul class="event-details-list">
+              <li class="event-detail-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <div class="event-detail-text">
+                  <strong>Hari &amp; Tanggal</strong>
+                  <span>Minggu, 15 Juni 2026</span>
+                </div>
+              </li>
+              <li class="event-detail-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="event-detail-text">
+                  <strong>Waktu Pelaksanaan</strong>
+                  <span>Pukul 08.00 - 10.00 WIB</span>
+                </div>
+              </li>
+              <li class="event-detail-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <div class="event-detail-text">
+                  <strong>Tempat Acara</strong>
+                  <span>Masjid Istiqlal Jakarta<br><small style="color: var(--color-text-muted);">Jl. Taman Wijaya Kusuma, Ps. Baru, Sawah Besar, Jakarta Pusat</small></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Resepsi Pernikahan -->
+          <div class="nandana-card event-card-nandana muncul">
+            <div class="event-icon-badge">🥂</div>
+            <h3 class="event-title-main">Resepsi Pernikahan</h3>
+            <div class="event-subtitle-sub">Ramah Tamah &amp; Doa Bersama</div>
+
+            <ul class="event-details-list">
+              <li class="event-detail-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <div class="event-detail-text">
+                  <strong>Hari &amp; Tanggal</strong>
+                  <span>Minggu, 15 Juni 2026</span>
+                </div>
+              </li>
+              <li class="event-detail-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div class="event-detail-text">
+                  <strong>Waktu Pelaksanaan</strong>
+                  <span>Pukul 11.00 - 14.00 WIB</span>
+                </div>
+              </li>
+              <li class="event-detail-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <div class="event-detail-text">
+                  <strong>Tempat Acara</strong>
+                  <span>Grand Ballroom Masjid Istiqlal Jakarta</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Google Maps Embed -->
+          <div class="nandana-card muncul" style="padding: 22px;">
+            <div class="map-embed-wrapper">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7161478303365!2d106.82880437499!3d-6.168751293818617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5ce68b5e01d%3A0xcafaf042d5840c6c!2sMasjid%20Istiqlal!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                loading="lazy"
+                title="Peta Lokasi Masjid Istiqlal">
+              </iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/SGwtYZqm3dLAxDAb9" target="_blank" rel="noopener noreferrer" class="btn-calendar-add">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+              <span>Buka Rute di Google Maps</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- 7. LIVE STREAMING (#streaming) -->
+        <section id="streaming" class="nandana-section muncul">
+          <div class="nandana-card text-center" style="background: linear-gradient(135deg, #2b1f1c 0%, #1a1210 100%); color: #ffffff; border-color: var(--color-gold);">
+            <div style="display: inline-block; background: #c5221f; color: #ffffff; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; padding: 4px 14px; border-radius: var(--radius-pill); text-transform: uppercase; margin-bottom: 12px;">
+              Siaran Langsung
+            </div>
+            <h2 style="font-family: var(--font-sc); font-size: 1.85rem; color: var(--color-gold-light); margin-bottom: 8px;">Virtual Wedding</h2>
+            <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; max-width: 440px; margin: 0 auto 20px;">
+              Bagi keluarga dan sahabat yang berhalangan hadir secara langsung, silakan bergabung secara virtual:
+            </p>
+
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+              <a href="https://instagram.com/muhavann" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-pill); background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+                <span>Instagram Live @muhavann</span>
+              </a>
+
+              <a href="https://zoom.us/join" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-pill); background: #2d8cff; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+                <span>Zoom Meeting</span>
+              </a>
+            </div>
+            <div style="margin-top: 14px; font-size: 0.85rem; color: var(--color-gold-light);">
+              Meeting ID: <strong>123 456 7890</strong> &bull; Sandi: <strong>EVANSALWA</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. KISAH CINTA (LOVE STORY) (#kisah) -->
+        <section id="kisah" class="nandana-section">
+          <div class="section-head muncul">
+            <span class="head-subtitle">Love Journey</span>
+            <h2 class="head-title">Kisah Cinta</h2>
+            <img src="assets/images/nandana/top-devidewer.png" alt="Divider" class="head-divider-img">
+          </div>
+
+          <div class="story-timeline-stream muncul">
+            <!-- 2020 -->
+            <div class="story-milestone-node">
+              <div class="story-milestone-dot"></div>
+              <div class="nandana-card" style="padding: 18px 20px;">
+                <span class="story-year-tag">Tahun 2020</span>
+                <h4 class="story-item-title">Pertemuan Pertama</h4>
+                <p class="story-item-desc">
+                  Sebuah perkenalan sederhana yang tak disangka menjadi awal mula tumbuhnya rasa cinta. Dari obrolan hangat, kami menemukan kecocokan dan kenyamanan hati.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="story-milestone-node">
+              <div class="story-milestone-dot"></div>
+              <div class="nandana-card" style="padding: 18px 20px;">
+                <span class="story-year-tag">Tahun 2023</span>
+                <h4 class="story-item-title">Menjalin Komitmen</h4>
+                <p class="story-item-desc">
+                  Dengan niat yang tulus, kami memantapkan hati untuk saling mendampingi, bertumbuh bersama, dan melangkah dengan satu tujuan yang sama.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2025 -->
+            <div class="story-milestone-node">
+              <div class="story-milestone-dot"></div>
+              <div class="nandana-card" style="padding: 18px 20px;">
+                <span class="story-year-tag">Tahun 2025</span>
+                <h4 class="story-item-title">Pertunangan &amp; Lamaran</h4>
+                <p class="story-item-desc">
+                  Atas ridho dan restu kedua orang tua serta keluarga besar, kami mengikat janji suci pertunangan untuk melangkah ke jenjang pernikahan.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2026 -->
+            <div class="story-milestone-node" style="margin-bottom: 0;">
+              <div class="story-milestone-dot"></div>
+              <div class="nandana-card" style="padding: 18px 20px;">
+                <span class="story-year-tag">Tahun 2026</span>
+                <h4 class="story-item-title">Hari Pernikahan Suci</h4>
+                <p class="story-item-desc">
+                  Mengukir janji seumur hidup dalam ikatan suci pernikahan di hadapan Allah SWT, keluarga, dan seluruh sahabat tercinta.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. GALERI FOTO & VIDEO (#galeri) -->
+        <section id="galeri" class="nandana-section">
+          <div class="section-head muncul">
+            <span class="head-subtitle">Captured Moments</span>
+            <h2 class="head-title">Galeri Bahagia</h2>
+            <img src="assets/images/nandana/top-devidewer.png" alt="Divider" class="head-divider-img">
+          </div>
+
+          <!-- Video Prewedding -->
+          <div class="video-player-frame muncul">
+            <iframe 
+              src="https://www.youtube.com/embed/moZNGtKcOFg" 
+              title="Prewedding Video Evan &amp; Salwa" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Grid Foto Prewedding -->
+          <div class="gallery-grid-nandana muncul">
+            <div class="gallery-thumb-item featured" onclick="openLightbox(0)">
+              <img src="assets/images/savan.jpg" alt="Evan dan Salwa Prewedding" loading="lazy">
+              <div class="gallery-overlay-icon">🔍</div>
+            </div>
+
+            <div class="gallery-thumb-item" onclick="openLightbox(1)">
+              <img src="assets/images/img1.jpeg" alt="Momen Evan dan Salwa" loading="lazy">
+              <div class="gallery-overlay-icon">🔍</div>
+            </div>
+
+            <div class="gallery-thumb-item" onclick="openLightbox(2)">
+              <img src="assets/images/img2.jpeg" alt="Momen Evan dan Salwa" loading="lazy">
+              <div class="gallery-overlay-icon">🔍</div>
+            </div>
+
+            <div class="gallery-thumb-item" onclick="openLightbox(3)">
+              <img src="assets/images/img3.jpeg" alt="Momen Evan dan Salwa" loading="lazy">
+              <div class="gallery-overlay-icon">🔍</div>
+            </div>
+
+            <div class="gallery-thumb-item" onclick="openLightbox(4)">
+              <img src="assets/images/img4.jpeg" alt="Momen Evan dan Salwa" loading="lazy">
+              <div class="gallery-overlay-icon">🔍</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. TANDA KASIH / WEDDING GIFT (#hadiah) -->
+        <section id="hadiah" class="nandana-section muncul">
+          <div class="section-head">
+            <span class="head-subtitle">Tanda Kasih</span>
+            <h2 class="head-title">Amplop Digital</h2>
+            <img src="assets/images/nandana/top-devidewer.png" alt="Divider" class="head-divider-img">
+          </div>
+
+          <div class="nandana-card text-center" style="text-align: center;">
+            <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 22px;">
+              Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda bermaksud memberi tanda kasih secara digital maupun kado fisik, silakan gunakan fasilitas berikut:
+            </p>
+
+            <!-- Tab Switcher -->
+            <div class="gift-tabs-nav">
+              <button type="button" class="gift-tab-btn active" onclick="switchGiftTab('transfer', this)">
+                💳 Transfer Bank / E-Wallet
+              </button>
+              <button type="button" class="gift-tab-btn" onclick="switchGiftTab('physical', this)">
+                🎁 Kirim Kado Fisik
+              </button>
+            </div>
+
+            <!-- Panel 1: Transfer Bank -->
+            <div id="giftTransferPanel">
+              <!-- BCA -->
+              <div class="bank-card-luxury">
+                <div class="bank-header-row">
+                  <img src="assets/images/bca.png" alt="BCA" class="bank-logo-img">
+                  <div class="bank-chip-gold"></div>
+                </div>
+                <div class="bank-number-text">1234 5678</div>
+                <div class="bank-holder-text">a.n. Muhamad Evan Fauzan</div>
+                <button type="button" class="btn-copy-gold" onclick="copyText('12345678', 'Nomor rekening BCA berhasil disalin!')">
+                  <span>📋 Salin No. Rekening</span>
+                </button>
+              </div>
+
+              <!-- DANA -->
+              <div class="bank-card-luxury" style="background: linear-gradient(135deg, #112d42 0%, #091724 100%);">
+                <div class="bank-header-row">
+                  <div style="font-size: 1.25rem; font-weight: 800; color: #ffffff;">DANA / E-Wallet</div>
+                  <div class="bank-chip-gold"></div>
+                </div>
+                <div class="bank-number-text">0857 1894 5476</div>
+                <div class="bank-holder-text">a.n. Muhamad Evan Fauzan</div>
+                <button type="button" class="btn-copy-gold" onclick="copyText('085718945476', 'Nomor DANA berhasil disalin!')">
+                  <span>📋 Salin No. DANA</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Panel 2: Kirim Kado Fisik -->
+            <div id="giftPhysicalPanel" style="display: none;">
+              <div style="background: #faf8f5; border: 1.5px dashed var(--color-border); border-radius: var(--radius-md); padding: 22px; text-align: left;">
+                <h4 style="font-family: var(--font-sc); font-size: 1.15rem; color: var(--color-primary-dark); margin-bottom: 8px;">Alamat Pengiriman Kado</h4>
+                <p style="font-size: 0.95rem; color: var(--color-text); line-height: 1.6; margin-bottom: 16px;">
+                  <strong>Penerima:</strong> Evan &amp; Salwa<br>
+                  <strong>No. HP:</strong> 0857-1894-5476<br>
+                  <strong>Alamat:</strong> Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, DKI Jakarta 10710
+                </p>
+                <button type="button" class="btn-calendar-add" onclick="copyText('Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, DKI Jakarta 10710 (Up: Evan & Salwa / 0857-1894-5476)', 'Alamat pengiriman kado berhasil disalin!')">
+                  <span>📋 Salin Alamat Lengkap</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 11. FRIENDS WISHES & RSVP (DATABASE MYSQL TERHUBUNG LANGSUNG) (#wishes) -->
+        <section id="wishes" class="nandana-section muncul">
+          <div class="section-head">
+            <span class="head-subtitle">Friends Wishes &amp; RSVP</span>
+            <h2 class="head-title">Doa Restu &amp; Kehadiran</h2>
+            <img src="assets/images/nandana/top-devidewer.png" alt="Divider" class="head-divider-img">
+            <p style="font-size: 0.95rem; color: var(--color-text-muted); max-width: 480px; margin: 8px auto 0;">
+              Untaian doa tulus dari Anda merupakan penyempurna kebahagiaan kami berdua.
+            </p>
+          </div>
+
+          <div class="wishes-container-nandana">
+            <!-- Formulir Buku Tamu -->
+            <form id="wishesForm">
+              <div class="wishes-form-group">
+                <label for="wishNama" class="wishes-label">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                   </svg>
-               </a>
-               <a href="#" id="lightboxNextBtn" class="lightbox-arrow" data-index="0">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"></path>
+                  <span>Nama Lengkap</span>
+                </label>
+                <input type="text" id="wishNama" class="wishes-input-field" placeholder="Masukkan nama lengkap Anda..." required>
+              </div>
+
+              <!-- Konfirmasi Kehadiran -->
+              <div class="wishes-form-group">
+                <label class="wishes-label">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
-               </a>
+                  <span>Konfirmasi Kehadiran</span>
+                </label>
+                <div class="attendance-pills-row">
+                  <label class="attendance-pill-btn active">
+                    <input type="radio" name="hadir" value="1" checked>
+                    <span>🟢 Insya Allah Hadir</span>
+                  </label>
+                  <label class="attendance-pill-btn">
+                    <input type="radio" name="hadir" value="0">
+                    <span>🔴 Berhalangan Hadir</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Pesan & Doa Restu -->
+              <div class="wishes-form-group">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <label for="wishKomentar" class="wishes-label" style="margin-bottom: 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                    </svg>
+                    <span>Doa &amp; Ucapan</span>
+                  </label>
+                  <span style="font-size: 0.74rem; color: var(--color-primary); font-weight: 600;">Klik untuk tempel:</span>
+                </div>
+
+                <div class="quick-doa-chips">
+                  <button type="button" class="quick-doa-chip" onclick="insertQuickDoa('Barakallahu lakuma wa baraka \'alaikuma wa jama\'a bainakuma fii khoir. Selamat Evan & Salwa!')">✨ Barakallah</button>
+                  <button type="button" class="quick-doa-chip" onclick="insertQuickDoa('Selamat menempuh hidup baru Evan & Salwa! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.')">🌸 Sakinah</button>
+                  <button type="button" class="quick-doa-chip" onclick="insertQuickDoa('Happy wedding Evan & Salwa! Semoga bahagia selalu hingga kakek nenek.')">🎉 Happy Wedding</button>
+                </div>
+
+                <textarea id="wishKomentar" class="wishes-textarea-field" placeholder="Tuliskan ucapan selamat dan doa restu terbaik Anda..." required></textarea>
+              </div>
+
+              <!-- Tombol Submit -->
+              <button type="submit" class="btn-submit-wish">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+                <span>Kirim Ucapan &amp; Doa Restu</span>
+              </button>
+
+              <!-- Tombol WhatsApp -->
+              <button type="button" onclick="sendWhatsAppRsvp()" class="btn-wa-rsvp">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.961.905 2.796.906h.005c3.179 0 5.766-2.586 5.767-5.766.001-1.54-.598-2.988-1.687-4.078-1.09-1.089-2.539-1.688-4.085-1.687zm8.497 5.767c-.002 4.685-3.812 8.496-8.498 8.496-1.488 0-2.946-.388-4.234-1.124l-4.796 1.258 1.28-4.672c-.808-1.336-1.234-2.884-1.233-4.46.002-4.685 3.813-8.496 8.5-8.496 2.272.001 4.408.886 6.014 2.493 1.606 1.606 2.491 3.743 2.487 6.005z"/>
+                </svg>
+                <span>Konfirmasi Langsung via WhatsApp</span>
+              </button>
+            </form>
+
+            <!-- Feed Daftar Ucapan Dari Database MySQL -->
+            <div class="wishes-feed-wrapper">
+              <div class="wishes-feed-header">
+                <h4 style="font-family: var(--font-sc); font-size: 1.15rem; color: var(--color-primary-dark); margin: 0;">
+                  Doa dari Keluarga &amp; Sahabat
+                </h4>
+                <div id="wishesCounterBadge" class="wishes-counter-badge">
+                  Memuat ucapan...
+                </div>
+              </div>
+
+              <!-- Daftar Ucapan dari database MySQL 'undangan' -->
+              <div id="wishesListFeed" class="wishes-scroll-feed">
+                <!-- Diisi otomatis oleh nandana.js dari database MySQL -->
+              </div>
             </div>
-         </div>
-         <!-- end lightbox -->
-         <!-- startQRModal -->
-         <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModal" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-               <div class="modal-content" style="height:100%">
-                  <div style="width: 100%;aspect-ratio: 16/9; background-size:cover; background-position: center; background-image: url(assets/images/savan.jpg);">
-                  </div>
-                  <div class="text-center py-4 px-4">
-                     <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
-                        <div style="text-align: left">
-                           <strong id="currentDate"></strong><br>
-                           <p id="currentTime"></p>
-                       </div>
-                       <div>
-                        <img src="assets/images/muhavan.png" width="90" height="90">
-                        <div><small style="margin-top: 10px; text-align: center"></small></div>
-                    </div>                    
-                     </div>
-                     <hr style="border-style: dashed; margin-top: 1rem; margin-bottom: 1rem; border: 0; border-top: 1px solid rgba(0,0,0,.1);">
-                     <div style="margin-bottom: 20px;">
-                         <div id="guestName" style="color: #b2b2b2;">Terima kasih telah menambah semangat kegembiraan pernikahan kami dengan kehadiran dan doa restunya</div>
-                         <div class="col-12 text-center my-3"><br>Copyright &copy; Evan | All Rights Reserved</div>
-                     </div>
-                  </div>
-                  <button onclick="closeModal(qrModal)" type="button" class="btn btn-close">
-                     <svg xmlns="http://www.w3.org/2000/svg" height="42px" width="42px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 18 6M6 6l12 12"></path>
-                     </svg>
-                  </button>
-               </div>
+          </div>
+        </section>
+
+        <!-- 12. PENUTUP & TERIMA KASIH -->
+        <section class="nandana-section muncul">
+          <div class="nandana-card text-center" style="text-align: center; padding: 40px 24px;">
+            <p style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.7; max-width: 500px; margin: 0 auto 16px;">
+              Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga, apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.
+            </p>
+            <div style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--color-primary); margin-bottom: 8px;">
+              Wassalamu'alaikum Warahmatullahi Wabarakatuh
             </div>
-         </div>        
-         <!-- endQRModal -->
-      </main>
-      <!-- illegal -->
-      <div id="illegal" class="container-mobile" style="background: #ffffff; z-index: 9999; min-height: 100vh; display: flex; justify-content: center; align-items: center; display: none">
-         <div class="modal-body modal-body d-flex flex-column align-items-center">
-            <div class="mb-4 text-center">
-               <svg width="90" height="90" fill="none">
-                  <path d="M36 28.024A18.05 18.05 0 0025.022 39M59.999 28.024A18.05 18.05 0 0170.975 39" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  <ellipse cx="37.5" cy="43.5" rx="4.5" ry="7.5" fill="currentColor"></ellipse>
-                  <ellipse cx="58.5" cy="43.5" rx="4.5" ry="7.5" fill="currentColor"></ellipse>
-                  <path d="M24.673 75.42a9.003 9.003 0 008.879 5.563m-8.88-5.562A8.973 8.973 0 0124 72c0-7.97 9-18 9-18s9 10.03 9 18a9 9 0 01-8.448 8.983m-8.88-5.562C16.919 68.817 12 58.983 12 48c0-19.882 16.118-36 36-36s36 16.118 36 36-16.118 36-36 36a35.877 35.877 0 01-14.448-3.017" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  <path d="M41.997 71.75A14.94 14.94 0 0148 70.5c2.399 0 4.658.56 6.661 1.556a3 3 0 003.999-4.066 12 12 0 00-10.662-6.49 11.955 11.955 0 00-7.974 3.032c1.11 2.37 1.917 4.876 1.972 7.217z" fill="currentColor"></path>
-               </svg>
-               <p>Kamu didapati mencoba menghapus watermark secara ilegal.</p>
-               <div class="col-12 text-center my-3"><br><br><br><br><br><br>Copyright &copy; Evan | All Rights Reserved</div>
+
+            <div style="font-family: var(--font-sc); font-size: 2.8rem; font-weight: 700; color: var(--color-text); margin: 12px 0 6px;">
+              Evan &amp; Salwa
             </div>
-         </div>
+
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
+              Hormat Kami yang Mengundang:<br>
+              <strong>Keluarga Besar Bpk. Fauzan</strong> &amp; <strong>Keluarga Besar Bpk. ...</strong>
+            </p>
+
+            <img src="assets/images/nandana/Untitled-1.png" alt="Bottom Ornament" class="head-divider-img" style="margin-top: 26px;">
+          </div>
+        </section>
+
       </div>
-      <!-- end illegal -->
-      <!-- not support modal -->
-      <div class="modal fade" id="notSupport" tabindex="-1" role="dialog" aria-labelledby="notSupport" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="border-radius: .8rem;">
-               <div class="modal-body text-center justify-content-center align-items-center">
-                  <h2>Pemberitahuan</h2>
-                  <p>Browser yang kamu gunakan mungkin kurang kompatibel. Beberapa fungsi undangan ini mungkin tidak dapat berjalan dengan baik. Kami merekomendasikan Chrome. Klik tombol dibawah ini untuk mendownload.</p>
-                  <div class="d-flex justify-content-center">
-                     <a href="https://apps.apple.com/id/app/google-chrome/id535886823" class="btn p-1" target="_BLANK">
-                     <img src="assets/images/btn_app_store.png" alt="AppStore" height="40px">
-                     </a>
-                     <a href="https://play.google.com/store/apps/details?id=com.android.chrome&amp;hl=in&amp;gl=US" class="btn p-1" target="_BLANK">
-                     <img src="assets/images/btn_play_store.png" alt="PlayStore" height="40px">
-                     </a>
-                  </div>
-               </div>
-               <div class="modal-footer">
-                  <button class="btn btn-outline-secondary btn-block rounded-pill" onclick="closeModal(notSupport)">Tetap Akses</button>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- not support modal -->
-      <!-- start script -->
-      <script src="assets/js/app.js"></script>
-      <script src="assets/js/splide.min.js"></script>
-      <script src="assets/js/themev2.js"></script>
-      <script>
-         // Fungsi untuk mendapatkan nama tamu dari parameter 'to' di URL
-         function getGuestName() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const guestName = urlParams.get('to');
-        
-            if (guestName) {
-                return `Kepada Yth;<br>Bapak/Ibu/Saudara/i<br><br>${guestName}`;
-            }
-            
-            return ""; // Atur nilai default jika tidak ada parameter 'to'
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const guestNameElement = document.getElementById('guestName');
-            guestNameElement.innerHTML = getGuestName();
-        });                        
-     </script>
-      <script>
-         function updateTime() {
-             const currentDateElement = document.getElementById("currentDate");
-             const currentTimeElement = document.getElementById("currentTime");
-     
-             const currentDate = new Date().toLocaleDateString(undefined, {
-                 year: 'numeric',
-                 month: 'long',
-                 day: 'numeric'
-             });
-             const currentTime = new Date().toLocaleTimeString();
-     
-             currentDateElement.textContent = currentDate;
-             currentTimeElement.textContent = currentTime;
-         }
-     
-         // Memperbarui waktu setiap detik
-         setInterval(updateTime, 1000);
-     
-         // Panggil updateTime untuk memperbarui waktu saat ini
-         updateTime();
-     </script>     
-      <script>
-         var notSupport = document.getElementById('notSupport');
-     
-         function checkBrowser() { 
-             if(navigator.userAgent.indexOf("UCBrowser") != -1 || navigator.userAgent.indexOf("MiuiBrowser") != -1 || navigator.userAgent.indexOf("OppoBrowser") != -1) {
-                 showModal(notSupport);
-                 if (loader) {
-                     loader.style.display = "none";
-                 }
-             }
-         }
-     
-         // Inisialisasi SimpleLightbox
-         var lightbox = new SimpleLightbox('.lightbox');
-     
-         checkBrowser();
-     </script>     
-      <!-- end script -->
-      <script></script>
-      <script defer="" src="https://static.cloudflareinsights.com/beacon.min.assets/js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" data-cf-beacon="{" rayid":"8415dd0a4dc9b96e","r":1,"version":"2023.10.0","token":"bb94421b81454f668eb9cf5cf8e9f0cb"}"="" crossorigin="anonymous"></script>
-   </body>
+    </main>
+
+  </div><!-- /.nandana-app-wrapper -->
+
+  <!-- ===================================================================
+       FLOATING BOTTOM DOCK NAVIGATION (5 MENU UTAMA IDENTIK NANDANA)
+       =================================================================== -->
+  <nav class="floating-dock-nandana" aria-label="Navigasi Undangan">
+    <a href="#hom" class="dock-item-btn active" title="Sampul">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+      </svg>
+      <span>Sampul</span>
+    </a>
+
+    <a href="#mempelai" class="dock-item-btn" title="Mempelai">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+      </svg>
+      <span>Mempelai</span>
+    </a>
+
+    <a href="#acara" class="dock-item-btn" title="Acara">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <span>Acara</span>
+    </a>
+
+    <a href="#galeri" class="dock-item-btn" title="Galeri">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <span>Galeri</span>
+    </a>
+
+    <a href="#wishes" class="dock-item-btn" title="Ucapan">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+      </svg>
+      <span>Ucapan</span>
+    </a>
+  </nav>
+
+  <!-- ===================================================================
+       PHOTO GALLERY LIGHTBOX MODAL
+       =================================================================== -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <div class="lightbox-content-box">
+      <button onclick="closeLightbox()" class="lightbox-ctrl-btn" style="position: absolute; top: -50px; right: 0;" title="Tutup">✕</button>
+      <button onclick="prevPhoto()" class="lightbox-ctrl-btn" style="position: absolute; left: -55px; top: 50%; transform: translateY(-50%);" title="Sebelumnya">‹</button>
+      
+      <img id="lightboxImg" src="assets/images/savan.jpg" alt="Foto Pengantin" class="lightbox-img-view">
+      <div id="lightboxCaption" style="color: var(--color-gold-light); font-size: 0.95rem; margin-top: 12px; font-family: var(--font-sc); letter-spacing: 1px;"></div>
+      
+      <button onclick="nextPhoto()" class="lightbox-ctrl-btn" style="position: absolute; right: -55px; top: 50%; transform: translateY(-50%);" title="Selanjutnya">›</button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastNotice" class="toast-notice">
+    <span>✦</span>
+    <span id="toastMessage">Pemberitahuan</span>
+  </div>
+
+  <!-- Nandana Script -->
+  <script src="assets/js/nandana.js"></script>
+</body>
 </html>
