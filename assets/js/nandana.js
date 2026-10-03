@@ -1,10 +1,15 @@
 /**
  * NANDANA THEME SCRIPT - RINGVITATION LUXURY WEDDING
- * Animations, 3D WebGL Rings, Scroll Reveals, & MySQL Database Wishes Integration
+ * Enhanced 3D WebGL Rings, Ambient Gold Particles, 3D Card Parallax Tilt,
+ * MySQL Database Comments & Dynamic Settings Integration from /admin
  */
 
 (function () {
   'use strict';
+
+  // Global settings state
+  let weddingSettings = null;
+  let targetWeddingTimestamp = new Date('2026-06-15T08:00:00+07:00').getTime();
 
   /* ===================================================================
      1. GUEST NAME PERSONALIZATION (URL PARAMETER)
@@ -113,13 +118,12 @@
           }
         });
       }, {
-        threshold: 0.15,
+        threshold: 0.12,
         rootMargin: '0px 0px -40px 0px'
       });
 
       elements.forEach(el => observer.observe(el));
     } else {
-      // Fallback
       function checkReveal() {
         const triggerBottom = window.innerHeight * 0.88;
         elements.forEach(el => {
@@ -135,108 +139,174 @@
   }
 
   /* ===================================================================
-     5. THREE.JS 3D WEDDING RINGS SHOWCASE
+     5. THREE.JS 3D WEDDING RINGS SHOWCASE (ENHANCED 3D DEPTH)
      =================================================================== */
   function init3DRings() {
     const canvas = document.getElementById('ringsCanvas');
     if (!canvas || typeof THREE === 'undefined') return;
 
-    const width = canvas.clientWidth || 320;
-    const height = canvas.clientHeight || 280;
+    const container = canvas.parentElement;
+    const width = container ? container.clientWidth : 340;
+    const height = 270;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 8;
+    const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 1000);
+    camera.position.z = 8.2;
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       alpha: true,
-      antialias: true
+      antialias: true,
+      powerPreference: 'high-performance'
     });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xfff5e6, 1.2);
+    // Ambient Warm Light
+    const ambientLight = new THREE.AmbientLight(0xfff7ed, 1.4);
     scene.add(ambientLight);
 
-    const pointLight1 = new THREE.PointLight(0xffdfa8, 2.5, 50);
-    pointLight1.position.set(5, 5, 5);
-    scene.add(pointLight1);
+    // Interactive Key Point Light (Follows Cursor)
+    const keyLight = new THREE.PointLight(0xffdfa8, 3.2, 35);
+    keyLight.position.set(4, 5, 5);
+    scene.add(keyLight);
 
-    const pointLight2 = new THREE.PointLight(0xffeedd, 1.5, 50);
-    pointLight2.position.set(-5, -3, 3);
-    scene.add(pointLight2);
+    // Fill Cool Light for Specular Facets
+    const fillLight = new THREE.PointLight(0xf5e6cc, 2.0, 35);
+    fillLight.position.set(-5, -3, 3);
+    scene.add(fillLight);
 
-    // Group for both rings
+    // Rings Group
     const ringsGroup = new THREE.Group();
     scene.add(ringsGroup);
 
-    // Material: Shiny Yellow Gold
+    // Material 1: Polished Yellow Gold
     const goldMaterial = new THREE.MeshStandardMaterial({
-      color: 0xd4af37,
-      metalness: 0.88,
-      roughness: 0.18,
+      color: 0xdfb746,
+      metalness: 0.92,
+      roughness: 0.12,
       wireframe: false
     });
 
-    // Material: Rose Gold / Diamond Accent
+    // Material 2: Romantic Rose Gold
     const roseGoldMaterial = new THREE.MeshStandardMaterial({
-      color: 0xe0a98b,
-      metalness: 0.9,
-      roughness: 0.15
+      color: 0xe5a38b,
+      metalness: 0.94,
+      roughness: 0.14
     });
 
     // Ring 1 (Groom's Classic Gold Band)
-    const ringGeo1 = new THREE.TorusGeometry(1.6, 0.28, 28, 64);
+    const ringGeo1 = new THREE.TorusGeometry(1.65, 0.28, 32, 80);
     const ring1 = new THREE.Mesh(ringGeo1, goldMaterial);
     ring1.rotation.x = Math.PI / 3;
     ring1.position.set(-0.7, 0, 0);
     ringsGroup.add(ring1);
 
     // Ring 2 (Bride's Intertwined Rose Gold Band)
-    const ringGeo2 = new THREE.TorusGeometry(1.5, 0.24, 28, 64);
+    const ringGeo2 = new THREE.TorusGeometry(1.55, 0.24, 32, 80);
     const ring2 = new THREE.Mesh(ringGeo2, roseGoldMaterial);
-    ring2.rotation.x = -Math.PI / 3.5;
-    ring2.rotation.y = Math.PI / 5;
+    ring2.rotation.x = -Math.PI / 3.4;
+    ring2.rotation.y = Math.PI / 5.2;
     ring2.position.set(0.7, 0, 0);
     ringsGroup.add(ring2);
 
-    // Diamond gem on Ring 2
-    const diamondGeo = new THREE.OctahedronGeometry(0.38, 1);
+    // Diamond Gem on Ring 2
+    const diamondGeo = new THREE.OctahedronGeometry(0.42, 1);
     const diamondMat = new THREE.MeshStandardMaterial({
       color: 0xffffff,
-      metalness: 0.1,
-      roughness: 0.05,
+      metalness: 0.15,
+      roughness: 0.04,
       transparent: true,
-      opacity: 0.95
+      opacity: 0.96
     });
     const diamond = new THREE.Mesh(diamondGeo, diamondMat);
-    diamond.position.set(0.7, 1.5, 0.4);
-    diamond.scale.set(0.9, 1.2, 0.9);
+    diamond.position.set(0.7, 1.58, 0.38);
+    diamond.scale.set(0.95, 1.3, 0.95);
     ringsGroup.add(diamond);
 
-    // Interactive pointer rotation
+    // Diamond Crown Setting Prongs
+    const prongGeo = new THREE.CylinderGeometry(0.04, 0.04, 0.35, 8);
+    const prongMat = roseGoldMaterial;
+    for (let i = 0; i < 4; i++) {
+      const angle = (i * Math.PI) / 2;
+      const prong = new THREE.Mesh(prongGeo, prongMat);
+      prong.position.set(
+        0.7 + Math.cos(angle) * 0.22,
+        1.45,
+        0.38 + Math.sin(angle) * 0.22
+      );
+      ringsGroup.add(prong);
+    }
+
+    // Swirling Golden Dust Particles (Sparkles Cloud)
+    const particleCount = 280;
+    const particleGeo = new THREE.BufferGeometry();
+    const particlePositions = new Float32Array(particleCount * 3);
+    const particleSpeeds = [];
+
+    for (let i = 0; i < particleCount; i++) {
+      const r = 2.2 + Math.random() * 2.5;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = (Math.random() - 0.5) * Math.PI;
+
+      particlePositions[i * 3] = r * Math.cos(theta) * Math.cos(phi);
+      particlePositions[i * 3 + 1] = r * Math.sin(phi);
+      particlePositions[i * 3 + 2] = r * Math.sin(theta) * Math.cos(phi);
+
+      particleSpeeds.push({
+        r: r,
+        theta: theta,
+        speed: 0.003 + Math.random() * 0.008,
+        yOffset: particlePositions[i * 3 + 1]
+      });
+    }
+
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+    const particleMat = new THREE.PointsMaterial({
+      color: 0xf3d692,
+      size: 0.065,
+      transparent: true,
+      opacity: 0.85,
+      blending: THREE.AdditiveBlending
+    });
+    const particleSystem = new THREE.Points(particleGeo, particleMat);
+    scene.add(particleSystem);
+
+    // Interactive pointer drag & mouse movement
     let isDragging = false;
     let prevMouseX = 0;
     let prevMouseY = 0;
+    let velocityX = 0;
+    let velocityY = 0;
 
     canvas.addEventListener('mousedown', (e) => {
       isDragging = true;
       prevMouseX = e.clientX;
       prevMouseY = e.clientY;
+      velocityX = 0;
+      velocityY = 0;
     });
 
     window.addEventListener('mouseup', () => { isDragging = false; });
 
     window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const deltaX = e.clientX - prevMouseX;
-      const deltaY = e.clientY - prevMouseY;
-      ringsGroup.rotation.y += deltaX * 0.01;
-      ringsGroup.rotation.x += deltaY * 0.01;
-      prevMouseX = e.clientX;
-      prevMouseY = e.clientY;
+      if (isDragging) {
+        const deltaX = e.clientX - prevMouseX;
+        const deltaY = e.clientY - prevMouseY;
+        velocityX = deltaX * 0.01;
+        velocityY = deltaY * 0.01;
+        ringsGroup.rotation.y += velocityX;
+        ringsGroup.rotation.x += velocityY;
+        prevMouseX = e.clientX;
+        prevMouseY = e.clientY;
+      }
+
+      // Move keyLight according to cursor
+      const rect = canvas.getBoundingClientRect();
+      const normX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      const normY = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+      keyLight.position.x = normX * 6;
+      keyLight.position.y = normY * 6;
     });
 
     // Touch interaction
@@ -245,6 +315,8 @@
         isDragging = true;
         prevMouseX = e.touches[0].clientX;
         prevMouseY = e.touches[0].clientY;
+        velocityX = 0;
+        velocityY = 0;
       }
     }, { passive: true });
 
@@ -254,39 +326,332 @@
       if (!isDragging || e.touches.length !== 1) return;
       const deltaX = e.touches[0].clientX - prevMouseX;
       const deltaY = e.touches[0].clientY - prevMouseY;
-      ringsGroup.rotation.y += deltaX * 0.012;
-      ringsGroup.rotation.x += deltaY * 0.012;
+      velocityX = deltaX * 0.012;
+      velocityY = deltaY * 0.012;
+      ringsGroup.rotation.y += velocityX;
+      ringsGroup.rotation.x += velocityY;
       prevMouseX = e.touches[0].clientX;
       prevMouseY = e.touches[0].clientY;
     }, { passive: true });
 
-    // Window resize
+    // Responsive resize
     window.addEventListener('resize', () => {
-      const newW = canvas.clientWidth || 320;
-      const newH = canvas.clientHeight || 280;
-      camera.aspect = newW / newH;
+      const newW = container ? container.clientWidth : 340;
+      camera.aspect = newW / height;
       camera.updateProjectionMatrix();
-      renderer.setSize(newW, newH);
+      renderer.setSize(newW, height);
     });
 
-    // Render loop
-    function animate() {
-      requestAnimationFrame(animate);
+    // Render animation loop
+    function animateRings() {
+      requestAnimationFrame(animateRings);
+
       if (!isDragging) {
-        ringsGroup.rotation.y += 0.007;
-        ringsGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.15;
+        ringsGroup.rotation.y += 0.008 + velocityX;
+        ringsGroup.rotation.x = Math.sin(Date.now() * 0.0012) * 0.16 + velocityY;
+        velocityX *= 0.94;
+        velocityY *= 0.94;
       }
+
+      // Animate swirling sparkles
+      const positions = particleGeo.attributes.position.array;
+      for (let i = 0; i < particleCount; i++) {
+        const p = particleSpeeds[i];
+        p.theta += p.speed;
+        positions[i * 3] = p.r * Math.cos(p.theta);
+        positions[i * 3 + 2] = p.r * Math.sin(p.theta);
+        positions[i * 3 + 1] = p.yOffset + Math.sin(Date.now() * 0.0015 + i) * 0.2;
+      }
+      particleGeo.attributes.position.needsUpdate = true;
+      particleSystem.rotation.y += 0.002;
+
       renderer.render(scene, camera);
     }
-    animate();
+    animateRings();
   }
 
   /* ===================================================================
-     6. COUNTDOWN TIMER (SAVE THE DATE)
+     6. AMBIENT 3D PARTICLES CANVAS (GOLD DUST & FLOATING PETALS)
+     =================================================================== */
+  function initAmbientParticlesCanvas() {
+    const canvas = document.getElementById('ambientParticlesCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    // Generate Petal & Gold Sparkle Items
+    const totalItems = Math.min(Math.floor(width / 30), 45);
+    const particles = [];
+
+    for (let i = 0; i < totalItems; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * 5 + 3,
+        speedY: Math.random() * 0.65 + 0.35,
+        speedX: Math.random() * 0.4 - 0.2,
+        oscillation: Math.random() * Math.PI * 2,
+        oscillationSpeed: Math.random() * 0.02 + 0.01,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.03,
+        opacity: Math.random() * 0.45 + 0.25,
+        isPetal: Math.random() > 0.45 // 55% soft petals, 45% gold flakes
+      });
+    }
+
+    let mouseX = width / 2;
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+    });
+
+    function renderParticles() {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach(p => {
+        p.oscillation += p.oscillationSpeed;
+        p.y += p.speedY;
+        p.x += Math.sin(p.oscillation) * 0.6 + p.speedX;
+        p.rotation += p.rotSpeed;
+
+        // Subtle mouse wind drift
+        const dx = mouseX - p.x;
+        p.x += dx * 0.0003;
+
+        // Recycle if below canvas
+        if (p.y > height + 20) {
+          p.y = -20;
+          p.x = Math.random() * width;
+        }
+        if (p.x < -20) p.x = width + 20;
+        if (p.x > width + 20) p.x = -20;
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+
+        if (p.isPetal) {
+          // Soft Warm Rose Petal
+          ctx.beginPath();
+          ctx.ellipse(0, 0, p.size * 1.5, p.size * 0.9, 0, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(197, 160, 89, ${p.opacity * 0.55})`;
+          ctx.fill();
+        } else {
+          // Sparkle Gold Flake
+          ctx.beginPath();
+          ctx.arc(0, 0, p.size * 0.55, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(224, 185, 110, ${p.opacity})`;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = 'rgba(212, 175, 55, 0.6)';
+          ctx.fill();
+        }
+
+        ctx.restore();
+      });
+
+      requestAnimationFrame(renderParticles);
+    }
+    renderParticles();
+  }
+
+  /* ===================================================================
+     7. INTERACTIVE 3D CARD PARALLAX TILT EFFECT
+     =================================================================== */
+  function initCard3DTilt() {
+    const cards = document.querySelectorAll('.nandana-card, .hero-arch-wrapper');
+    if (!cards.length) return;
+
+    cards.forEach(card => {
+      // Add dynamic specular glare overlay
+      const glare = document.createElement('div');
+      glare.className = 'card-specular-glare';
+      card.appendChild(glare);
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -6; // max 6 deg
+        const rotateY = ((x - centerX) / centerX) * 6;
+
+        card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.015, 1.015, 1.015)`;
+
+        // Position glare highlight
+        const percentX = (x / rect.width) * 100;
+        const percentY = (y / rect.height) * 100;
+        glare.style.opacity = '1';
+        glare.style.background = `radial-gradient(circle at ${percentX}% ${percentY}%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 65%)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        glare.style.opacity = '0';
+      });
+    });
+  }
+
+  /* ===================================================================
+     8. DYNAMIC SETTINGS LOADER FROM API (/admin)
+     =================================================================== */
+  function loadWeddingSettings() {
+    fetch('api/settings.php')
+      .then(res => res.json())
+      .then(result => {
+        if (!result.success || !result.data) return;
+        weddingSettings = result.data;
+        applySettingsToDOM(weddingSettings);
+      })
+      .catch(err => {
+        console.log('Menggunakan pengaturan default lokal:', err);
+      });
+  }
+
+  function applySettingsToDOM(s) {
+    if (!s) return;
+
+    // 1. General & Dates
+    if (s.general) {
+      if (s.general.wedding_date) {
+        targetWeddingTimestamp = new Date(s.general.wedding_date).getTime();
+      }
+      if (s.general.wedding_date_formatted) {
+        const heroDate = document.getElementById('heroDateText');
+        const desktopDate = document.getElementById('desktopDateText');
+        if (heroDate) heroDate.textContent = s.general.wedding_date_formatted;
+        if (desktopDate) desktopDate.textContent = `✦ ${s.general.wedding_date_formatted} • ${s.events?.akad?.venue || 'Masjid Istiqlal Jakarta'} ✦`;
+      }
+      if (s.general.greeting_title) {
+        const el = document.getElementById('greetingTitle');
+        if (el) el.textContent = s.general.greeting_title;
+      }
+      if (s.general.greeting_message) {
+        const el = document.getElementById('greetingMessage');
+        if (el) el.textContent = s.general.greeting_message;
+      }
+      if (s.general.love_quote) {
+        const el = document.getElementById('loveQuoteBody');
+        const deskQuote = document.getElementById('desktopQuoteText');
+        if (el) el.textContent = `"${s.general.love_quote}"`;
+        if (deskQuote) deskQuote.textContent = `"${s.general.love_quote}"`;
+      }
+      if (s.general.quote_author) {
+        const el = document.getElementById('quoteAuthor');
+        if (el) el.textContent = `— ${s.general.quote_author} —`;
+      }
+    }
+
+    // 2. Groom Details
+    if (s.groom) {
+      if (s.groom.fullname) {
+        const el = document.getElementById('groomFullName');
+        if (el) el.textContent = s.groom.fullname;
+      }
+      if (s.groom.nickname) {
+        const el = document.getElementById('groomNickName');
+        if (el) el.textContent = s.groom.nickname;
+      }
+      if (s.groom.parents) {
+        const el = document.getElementById('groomParents');
+        if (el) el.innerHTML = `${s.groom.parents}`;
+      }
+      if (s.groom.instagram) {
+        const link = document.getElementById('groomIgLink');
+        const handle = document.getElementById('groomIgHandle');
+        if (link) link.href = `https://instagram.com/${s.groom.instagram}`;
+        if (handle) handle.textContent = `@${s.groom.instagram}`;
+      }
+      if (s.groom.photo) {
+        const img = document.getElementById('groomPhotoImg');
+        if (img) img.src = s.groom.photo;
+      }
+    }
+
+    // 3. Bride Details
+    if (s.bride) {
+      if (s.bride.fullname) {
+        const el = document.getElementById('brideFullName');
+        if (el) el.textContent = s.bride.fullname;
+      }
+      if (s.bride.nickname) {
+        const el = document.getElementById('brideNickName');
+        if (el) el.textContent = s.bride.nickname;
+      }
+      if (s.bride.parents) {
+        const el = document.getElementById('brideParents');
+        if (el) el.innerHTML = `${s.bride.parents}`;
+      }
+      if (s.bride.instagram) {
+        const link = document.getElementById('brideIgLink');
+        const handle = document.getElementById('brideIgHandle');
+        if (link) link.href = `https://instagram.com/${s.bride.instagram}`;
+        if (handle) handle.textContent = `@${s.bride.instagram}`;
+      }
+      if (s.bride.photo) {
+        const img = document.getElementById('bridePhotoImg');
+        if (img) img.src = s.bride.photo;
+      }
+    }
+
+    // 4. Photos (Cover & Gallery)
+    if (s.cover && s.cover.photo) {
+      const heroPhoto = document.getElementById('heroPhotoImg');
+      if (heroPhoto) heroPhoto.src = s.cover.photo;
+    }
+
+    if (Array.isArray(s.gallery) && s.gallery.length) {
+      s.gallery.forEach((url, i) => {
+        if (galleryItems[i]) galleryItems[i].src = url;
+      });
+      // Update gallery grid thumbnails in DOM
+      const thumbs = document.querySelectorAll('.gallery-thumb-item img');
+      thumbs.forEach((img, i) => {
+        if (s.gallery[i]) img.src = s.gallery[i];
+      });
+    }
+
+    // 5. Events (Akad & Resepsi)
+    if (s.events) {
+      if (s.events.akad) {
+        const a = s.events.akad;
+        const title = document.getElementById('eventAkadTitle');
+        const sub = document.getElementById('eventAkadSubtitle');
+        if (title && a.title) title.textContent = a.title;
+        if (sub && a.subtitle) sub.textContent = a.subtitle;
+      }
+      if (s.events.resepsi) {
+        const r = s.events.resepsi;
+        const title = document.getElementById('eventResepsiTitle');
+        const sub = document.getElementById('eventResepsiSubtitle');
+        if (title && r.title) title.textContent = r.title;
+        if (sub && r.subtitle) sub.textContent = r.subtitle;
+      }
+    }
+
+    // 6. Gift Accounts
+    if (s.gift) {
+      const bcaNum = document.getElementById('bcaNumberText');
+      const bcaName = document.getElementById('bcaHolderText');
+      const danaNum = document.getElementById('danaNumberText');
+      if (bcaNum && s.gift.bca_no) bcaNum.textContent = s.gift.bca_no;
+      if (bcaName && s.gift.bca_name) bcaName.textContent = `a.n. ${s.gift.bca_name}`;
+      if (danaNum && s.gift.dana_no) danaNum.textContent = s.gift.dana_no;
+    }
+  }
+
+  /* ===================================================================
+     9. COUNTDOWN TIMER (SAVE THE DATE)
      =================================================================== */
   function initCountdown() {
-    const targetDate = new Date('2026-06-15T08:00:00+07:00').getTime();
-
     const dEl = document.getElementById('countDays');
     const hEl = document.getElementById('countHours');
     const mEl = document.getElementById('countMinutes');
@@ -296,7 +661,7 @@
 
     function update() {
       const now = new Date().getTime();
-      const diff = targetDate - now;
+      const diff = targetWeddingTimestamp - now;
 
       if (diff <= 0) {
         dEl.textContent = '00';
@@ -322,7 +687,7 @@
   }
 
   /* ===================================================================
-     7. PHOTO GALLERY LIGHTBOX
+     10. PHOTO GALLERY LIGHTBOX
      =================================================================== */
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -372,7 +737,7 @@
   });
 
   /* ===================================================================
-     8. TOAST NOTIFICATION & COPY TO CLIPBOARD
+     11. TOAST NOTIFICATION & COPY TO CLIPBOARD
      =================================================================== */
   const toastEl = document.getElementById('toastNotice');
   let toastTimer = null;
@@ -410,7 +775,7 @@
   }
 
   /* ===================================================================
-     9. WEDDING GIFT TAB SWITCHER
+     12. WEDDING GIFT TAB SWITCHER
      =================================================================== */
   window.switchGiftTab = function (tabType, btnEl) {
     document.querySelectorAll('.gift-tab-btn').forEach(b => b.classList.remove('active'));
@@ -429,22 +794,22 @@
   };
 
   /* ===================================================================
-     10. FRIENDS WISHES & RSVP (DATABASE MYSQL INTEGRATION)
+     13. FRIENDS WISHES & RSVP (DATABASE MYSQL INTEGRATION)
      =================================================================== */
   const wishesListContainer = document.getElementById('wishesListFeed');
   const wishesCounterBadge = document.getElementById('wishesCounterBadge');
   const wishForm = document.getElementById('wishesForm');
 
-  // Quick prayer insertion
+  // Quick casual wish insertion
   window.insertQuickDoa = function (text) {
     const input = document.getElementById('wishKomentar');
     if (!input) return;
     input.value = text;
     input.focus();
-    window.showToast('Doa berhasil ditempel ke form!');
+    window.showToast('Ucapan berhasil ditempel ke formulir!');
   };
 
-  // Fetch comments from local MySQL database via api/comments.php
+  // Fetch comments from MySQL database via api/comments.php
   function loadCommentsFromDatabase() {
     if (!wishesListContainer) return;
 
@@ -534,7 +899,7 @@
     });
   }
 
-  // Submit comment to local MySQL database
+  // Submit comment to MySQL database
   if (wishForm) {
     wishForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -560,7 +925,7 @@
       const submitBtn = wishForm.querySelector('button[type="submit"]');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Mengirim ke database...</span>';
+        submitBtn.innerHTML = '<span>Menyimpan ke database...</span>';
       }
 
       const payload = {
@@ -587,7 +952,7 @@
           }
 
           if (result.success) {
-            window.showToast('Doa restu Anda berhasil disimpan di database!');
+            window.showToast('✨ Doa restu Anda berhasil disimpan di database!');
             if (komentarInput) komentarInput.value = '';
             // Reload comments list from database
             loadCommentsFromDatabase();
@@ -601,7 +966,7 @@
             submitBtn.innerHTML = '<span>Kirim Ucapan &amp; Doa Restu</span>';
           }
           console.error(err);
-          window.showToast('Terjadi kesalahan saat menghubungkan ke server MySQL.');
+          window.showToast('Terjadi kesalahan saat menghubungkan ke database.');
         });
     });
   }
@@ -623,7 +988,7 @@
   };
 
   /* ===================================================================
-     11. FLOATING NAVIGATION DOCK OBSERVER
+     14. FLOATING NAVIGATION DOCK OBSERVER
      =================================================================== */
   function initNavObserver() {
     const sections = document.querySelectorAll('section[id], div[id="pembuka"], div[id="hom"]');
@@ -656,9 +1021,12 @@
      =================================================================== */
   document.addEventListener('DOMContentLoaded', () => {
     initGuestPersonalization();
+    loadWeddingSettings();
     initScrollReveal();
     initCountdown();
     init3DRings();
+    initAmbientParticlesCanvas();
+    initCard3DTilt();
     loadCommentsFromDatabase();
     initNavObserver();
   });

@@ -159,60 +159,18 @@ body.modal-open {
   transition: opacity 0.6s ease, transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.fadeZoom {
-  position: relative;
-  transform: scale(0.5);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fadeZoomOut {
-  position: relative;
-  transform: scale(1.25);
-  opacity: 0;
-  transition: opacity 1.2s ease, transform 2.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fadeBawah {
-  position: relative;
-  transform: translateY(6rem) scale(0.93);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fadeAtas {
-  position: relative;
-  transform: translateY(-6rem) scale(0.93);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.muncul {
-  position: relative;
-  transform: translateY(5rem) scale(0.95);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.muncul-kiri {
-  position: relative;
-  transform: translateX(-100%) scale(0.93);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.muncul-kanan {
-  position: relative;
-  transform: translateX(100%) scale(0.93);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
+.fadeZoom,
+.fadeZoomOut,
+.fadeBawah,
+.fadeAtas,
+.muncul,
+.muncul-kiri,
+.muncul-kanan,
 .munculAtas {
   position: relative;
-  transform: translateY(-5rem) scale(0.95);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1 !important;
+  transform: none !important;
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Active states for reveal classes */
@@ -223,15 +181,11 @@ body.modal-open {
 .muncul.active,
 .muncul-kiri.active,
 .muncul-kanan.active,
-.munculAtas.active {
-  transform: translate(0, 0) scale(1);
-  opacity: 1;
-}
-
+.munculAtas.active,
 .fadeZoom.active,
 .fadeZoomOut.active {
-  transform: scale(1);
-  opacity: 1;
+  transform: translate(0, 0) scale(1) !important;
+  opacity: 1 !important;
 }
 
 /* ===================================================================
@@ -527,13 +481,13 @@ body.modal-open {
 
 /* Section Common Styling */
 .nandana-section {
-  padding: 60px 0 20px;
+  padding: 42px 0 16px;
   position: relative;
 }
 
 .section-head {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   position: relative;
 }
 
@@ -565,15 +519,20 @@ body.modal-open {
   opacity: 0.85;
 }
 
-/* Cards */
+/* Cards with Luxury Texture & Double Gold Borders to Eliminate Empty Voids */
 .nandana-card {
-  background: var(--bg-card);
-  border: 1px solid var(--color-border);
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.96), rgba(254, 251, 247, 0.97)),
+    url('../images/nandana/bgundw.webp');
+  background-size: cover;
+  border: 1px solid rgba(197, 160, 89, 0.45);
   border-radius: var(--radius-lg);
   padding: 34px 26px;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: 0 14px 40px rgba(44, 34, 30, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.9), inset 0 0 0 3px rgba(197, 160, 89, 0.12);
   position: relative;
-  transition: var(--transition-smooth);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
 }
 
 @media (max-width: 576px) {
@@ -584,8 +543,8 @@ body.modal-open {
 }
 
 .nandana-card:hover {
-  box-shadow: var(--shadow-medium);
-  border-color: var(--color-primary-light);
+  box-shadow: 0 20px 50px rgba(44, 34, 30, 0.14), inset 0 0 0 1px rgba(255, 255, 255, 0.95), inset 0 0 0 3px rgba(197, 160, 89, 0.25);
+  border-color: var(--color-gold);
 }
 
 /* ===================================================================
@@ -700,30 +659,61 @@ body.modal-open {
 .couple-cards-stack {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
+  position: relative;
 }
 
 .couple-profile-box {
   text-align: center;
   position: relative;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .couple-photo-arch {
-  width: 190px;
-  height: 250px;
+  width: 200px;
+  height: 260px;
   margin: 0 auto 18px;
   border-radius: var(--radius-arch);
   overflow: hidden;
   position: relative;
-  border: 3px solid var(--color-border-gold);
-  box-shadow: 0 12px 30px rgba(44, 34, 30, 0.12);
+  border: 3.5px solid var(--color-gold);
+  box-shadow: 0 14px 35px rgba(44, 34, 30, 0.16);
+  background: #f7f3ee;
 }
 
 .couple-photo-arch img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
   transition: transform 0.6s ease;
+}
+
+.couple-divider-ampersand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -14px auto;
+  position: relative;
+  z-index: 10;
+}
+
+.ampersand-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c5a059 0%, #916c1a 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.45);
+  border: 3px solid #ffffff;
 }
 
 .couple-profile-box:hover .couple-photo-arch img {
@@ -1662,3 +1652,204 @@ body.modal-open {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+/* ===================================================================
+   AMBIENT 3D PARTICLES CANVAS (GOLD DUST & PETALS)
+   =================================================================== */
+.ambient-particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 8;
+}
+
+/* ===================================================================
+   CARD ORNAMENTAL GOLD CORNER ACCENTS (ELIMINATES EMPTY SPACES)
+   =================================================================== */
+.card-gold-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--color-gold);
+  border-style: solid;
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.corner-tl {
+  top: 12px;
+  left: 12px;
+  border-width: 2px 0 0 2px;
+}
+
+.corner-tr {
+  top: 12px;
+  right: 12px;
+  border-width: 2px 2px 0 0;
+}
+
+.corner-bl {
+  bottom: 12px;
+  left: 12px;
+  border-width: 0 0 2px 2px;
+}
+
+.corner-br {
+  bottom: 12px;
+  right: 12px;
+  border-width: 0 2px 2px 0;
+}
+
+.nandana-card:hover .card-gold-corner {
+  opacity: 1;
+  border-color: var(--color-gold-light);
+  transform: scale(1.15);
+}
+
+/* Floating Corner Flora Accents */
+.hero-flora-corner {
+  position: absolute;
+  width: 95px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 6px 14px rgba(141, 91, 76, 0.25));
+}
+
+.hero-flora-left {
+  top: 20px;
+  left: -20px;
+}
+
+.hero-flora-right {
+  top: 40px;
+  right: -25px;
+}
+
+@media (max-width: 576px) {
+  .hero-flora-corner {
+    width: 65px;
+  }
+}
+
+/* ===================================================================
+   INTERACTIVE 3D WEDDING RINGS SHOWCASE ENHANCEMENT
+   =================================================================== */
+.rings-3d-container {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at center, rgba(197, 160, 89, 0.14) 0%, rgba(34, 24, 21, 0.04) 65%, transparent 100%);
+  border: 1px solid var(--color-border-gold);
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(197, 160, 89, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rings-aura-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.3) 0%, rgba(197, 160, 89, 0) 70%);
+  filter: blur(25px);
+  pointer-events: none;
+  animation: tampan 4s infinite ease-in-out;
+}
+
+#ringsCanvas {
+  width: 100% !important;
+  height: 270px !important;
+  display: block;
+  cursor: grab;
+}
+
+#ringsCanvas:active {
+  cursor: grabbing;
+}
+
+.rings-touch-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border-gold);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  margin-top: -15px;
+  margin-bottom: 8px;
+  z-index: 5;
+  animation: goyank 4s infinite ease-in-out;
+}
+
+.rings-overlay-label {
+  font-family: var(--font-sc);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  z-index: 5;
+}
+
+/* ===================================================================
+   QUOTE & GREETING STYLING
+   =================================================================== */
+.quote-eyebrow {
+  font-family: var(--font-sc);
+  font-size: 0.78rem;
+  letter-spacing: 3.5px;
+  color: var(--color-gold-dark);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.quote-ornament-wrap {
+  position: relative;
+  padding: 10px 16px;
+  margin: 12px 0 16px;
+  background: rgba(197, 160, 89, 0.04);
+  border-radius: var(--radius-sm);
+  border-left: 2.5px solid var(--color-gold);
+  border-right: 2.5px solid var(--color-gold);
+}
+
+/* ===================================================================
+   3D CARD PARALLAX TILT EFFECT STYLES
+   =================================================================== */
+.card-specular-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>The Wedding of Evan &amp; Salwa</title>
-  
+
   <meta name="title" content="The Wedding of Evan &amp; Salwa">
-  <meta name="description" content="Undangan Pernikahan Evan Fauzan &amp; Salwa Carelina Maybrella. Minggu, 15 Juni 2026 di Masjid Istiqlal Jakarta.">
-  
+  <meta name="description"
+    content="Undangan Pernikahan Evan Fauzan &amp; Salwa Carelina Maybrella. Minggu, 15 Juni 2026 di Masjid Istiqlal Jakarta.">
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="The Wedding of Evan &amp; Salwa">
-  <meta property="og:description" content="Undangan Pernikahan Evan &amp; Salwa. Minggu, 15 Juni 2026 di Masjid Istiqlal Jakarta.">
+  <meta property="og:description"
+    content="Undangan Pernikahan Evan &amp; Salwa. Minggu, 15 Juni 2026 di Masjid Istiqlal Jakarta.">
   <meta property="og:image" content="assets/images/savan.jpg">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -21,10 +24,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <!-- Nandana Stylesheet -->
-  <link rel="stylesheet" href="assets/css/nandana.css">
+  <link rel="stylesheet" href="assets/css/nandana.css?v=2.2">
 </head>
 
 <body class="modal-open">
+
+  <!-- Ambient 3D Golden Particles / Petals Canvas -->
+  <canvas id="ambientParticlesCanvas" class="ambient-particles-canvas"></canvas>
 
   <!-- Audio Pengiring Romantis -->
   <audio id="weddingAudio" loop preload="auto">
@@ -34,7 +40,7 @@
   <!-- Tombol Musik Mengambang -->
   <button id="floatingMusicBtn" class="floating-music-btn" aria-label="Putar / Jeda Musik" title="Musik Undangan">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
     </svg>
   </button>
 
@@ -42,17 +48,21 @@
        COVER POPUP MODAL IDENTIK RINGVITATION NANDANA (#elementor-popup-trihod)
        =================================================================== -->
   <div id="elementor-popup-trihod" class="popup-trihod-wrapper">
-    
+
     <!-- Ornamen Daun Melayang Goyang Kiri & Kanan (Layer 3D) -->
-    <img src="assets/images/nandana/tess-768x821.webp" alt="Botanical Leaf" class="cover-flora cover-flora-topleft opw goyang2">
-    <img src="assets/images/nandana/ggngng-1.webp" alt="Golden Gunungan" class="cover-flora cover-flora-topright opg goyang">
-    <img src="assets/images/nandana/trwet234.webp" alt="Botanical Accent" class="cover-flora cover-flora-bottomleft opw goyang">
-    <img src="assets/images/nandana/dawdy546sdf.webp" alt="Palm Leaf" class="cover-flora cover-flora-bottomright opg goyang2">
+    <img src="assets/images/nandana/tess-768x821.webp" alt="Botanical Leaf"
+      class="cover-flora cover-flora-topleft opw goyang2">
+    <img src="assets/images/nandana/ggngng-1.webp" alt="Golden Gunungan"
+      class="cover-flora cover-flora-topright opg goyang">
+    <img src="assets/images/nandana/trwet234.webp" alt="Botanical Accent"
+      class="cover-flora cover-flora-bottomleft opw goyang">
+    <img src="assets/images/nandana/dawdy546sdf.webp" alt="Palm Leaf"
+      class="cover-flora cover-flora-bottomright opg goyang2">
 
     <!-- Kotak Tengah Pembuka Undangan -->
     <div id="pembuka" class="cover-content-box">
       <div class="cover-tagline">The Wedding Of</div>
-      
+
       <!-- Bingkai Arch Foto Pengantin -->
       <div class="cover-arch-frame">
         <img src="assets/images/savan.jpg" alt="Evan dan Salwa Pengantin">
@@ -69,8 +79,10 @@
 
       <!-- Tombol Buka Undangan (#toot) -->
       <a href="#" id="toot" class="btn-buka-undangan" role="button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
         <span>Buka Undangan</span>
       </a>
@@ -90,24 +102,31 @@
         <h2 class="desktop-couple-title">Evan &amp; Salwa</h2>
 
         <!-- Foto Pengantin Arch di Desktop -->
-        <div class="hero-arch-wrapper" style="width: 150px; height: 200px; margin: 15px auto; border-color: rgba(197, 160, 89, 0.7); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <div class="hero-arch-wrapper"
+          style="width: 150px; height: 200px; margin: 15px auto; border-color: rgba(197, 160, 89, 0.7); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
           <img src="assets/images/savan.jpg" alt="Evan &amp; Salwa">
         </div>
 
-        <p class="desktop-quote-text">
-          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."
+        <p class="desktop-quote-text" id="desktopQuoteText">
+          "Dua jiwa namun satu pikiran, dua hati yang berdetak sebagai satu. Bersama kami melangkah, menyatukan cinta
+          dalam ikatan janji seumur hidup."
         </p>
         <div class="desktop-date-pill">
-          <span>✦ Minggu, 15 Juni 2026 &bull; Masjid Istiqlal Jakarta ✦</span>
+          <span id="desktopDateText">✦ Minggu, 15 Juni 2026 &bull; Masjid Istiqlal Jakarta ✦</span>
         </div>
 
-        <div style="margin-top: 24px; padding: 16px 20px; background: rgba(255, 255, 255, 0.08); border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.35);">
-          <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 4px;">Kepada Yth. Bapak/Ibu/Saudara/i:</div>
-          <div id="desktopGuestName" style="font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700; color: #ffffff;">Tamu Undangan</div>
+        <div
+          style="margin-top: 24px; padding: 16px 20px; background: rgba(255, 255, 255, 0.08); border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.35);">
+          <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 4px;">Kepada Yth.
+            Bapak/Ibu/Saudara/i:</div>
+          <div id="desktopGuestName"
+            style="font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700; color: #ffffff;">Tamu Undangan
+          </div>
         </div>
       </div>
 
-      <div style="font-size: 0.82rem; color: rgba(255, 255, 255, 0.6); border-top: 1px solid rgba(197, 160, 89, 0.3); padding-top: 16px; text-align: center;">
+      <div
+        style="font-size: 0.82rem; color: rgba(255, 255, 255, 0.6); border-top: 1px solid rgba(197, 160, 89, 0.3); padding-top: 16px; text-align: center;">
         The Wedding of Evan &amp; Salwa
       </div>
     </aside>
@@ -117,33 +136,52 @@
       <div class="stream-inner-container">
 
         <!-- 1. HERO STREAM BANNER (#hom) -->
-        <section id="hom" class="hero-stream-banner opx fadeZoomOut">
+        <section id="hom" class="hero-stream-banner">
+          <!-- Background Floating Florals -->
+          <img src="assets/images/nandana/januurr2.webp" alt="Janur Accent"
+            class="hero-flora-corner hero-flora-left goyank">
+          <img src="assets/images/nandana/daw13123.webp" alt="Palm Accent"
+            class="hero-flora-corner hero-flora-right goyank2">
+
           <img src="assets/images/nandana/orn12ww.webp" alt="Top Crest" class="hero-crest-top">
-          
+
           <div class="hero-arch-wrapper">
-            <img src="assets/images/savan.jpg" alt="Evan &amp; Salwa">
+            <img id="heroPhotoImg" src="assets/images/savan.jpg" alt="Evan &amp; Salwa">
           </div>
 
-          <div class="hero-wedding-of">The Wedding Of</div>
-          <h1 class="hero-names-title">Evan &amp; Salwa</h1>
-          <p class="hero-date-text">Minggu, 15 Juni 2026</p>
+          <div class="hero-wedding-of" id="heroWeddingOf">The Wedding Of</div>
+          <h1 class="hero-names-title" id="heroCoupleTitle">Evan &amp; Salwa</h1>
+          <p class="hero-date-text" id="heroDateText">Minggu, 15 Juni 2026</p>
         </section>
 
-        <!-- 2. AYAT SUCI & MUKADIMAH (#ayat) -->
+        <!-- 2. KUTIPAN CINTA & SAMBUTAN HANGAT (#ayat) -->
         <section id="ayat" class="nandana-section muncul">
-          <div class="ayat-box">
-            <img src="assets/images/nandana/top-devidewer.png" alt="Top Divider" class="head-divider-img" style="margin-bottom: 16px;">
-            <div class="bismillah-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-            <h2 class="salam-text">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
-            <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 12px;">
-              Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
+          <div class="nandana-card ayat-box">
+            <!-- Ornamen Bingkai Sudut -->
+            <div class="card-gold-corner corner-tl"></div>
+            <div class="card-gold-corner corner-tr"></div>
+            <div class="card-gold-corner corner-bl"></div>
+            <div class="card-gold-corner corner-br"></div>
+
+            <img src="assets/images/nandana/top-devidewer.png" alt="Top Divider" class="head-divider-img"
+              style="margin-bottom: 16px;">
+            <div class="quote-eyebrow">✦ A PROMISE OF FOREVER ✦</div>
+            <h2 class="salam-text" id="greetingTitle">Salam Hangat &amp; Penuh Sukacita</h2>
+            <p id="greetingMessage"
+              style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.75; margin-bottom: 16px;">
+              Dengan penuh rasa syukur dan sukacita, kami mengundang Bapak/Ibu/Saudara/i serta sahabat terkasih untuk
+              menjadi bagian dari hari bahagia kami berdua:
             </p>
 
-            <p class="ayat-quote-body">
-              "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
-            </p>
-            <div class="ayat-surah-ref">— QS. Ar-Rum: 21 —</div>
-            <img src="assets/images/nandana/Untitled-1.png" alt="Bottom Divider" class="head-divider-img" style="margin-top: 18px;">
+            <div class="quote-ornament-wrap">
+              <p class="ayat-quote-body" id="loveQuoteBody">
+                "Dua jiwa namun satu pikiran, dua hati yang berdetak sebagai satu. Bersama kami melangkah, menyatukan
+                cinta dalam ikatan janji seumur hidup untuk saling melengkapi dan mendampingi."
+              </p>
+            </div>
+            <div class="ayat-surah-ref" id="quoteAuthor">— Evan &amp; Salwa —</div>
+            <img src="assets/images/nandana/Untitled-1.png" alt="Bottom Divider" class="head-divider-img"
+              style="margin-top: 18px;">
           </div>
         </section>
 
@@ -157,40 +195,53 @@
 
           <div class="couple-cards-stack">
             <!-- Mempelai Pria -->
-            <div class="nandana-card couple-profile-box muncul-kiri">
+            <div class="nandana-card couple-profile-box">
+              <div class="card-gold-corner corner-tl"></div>
+              <div class="card-gold-corner corner-tr"></div>
               <div class="couple-photo-arch">
-                <img src="assets/images/cowo.png" alt="Muhamad Evan Fauzan">
+                <img id="groomPhotoImg" src="assets/images/cowo.png" alt="Muhamad Evan Fauzan">
               </div>
-              <h3 class="couple-fullname">Muhamad Evan Fauzan</h3>
-              <span class="couple-nickname">Evan</span>
-              <p class="couple-parents">
+              <h3 class="couple-fullname" id="groomFullName">Muhamad Evan Fauzan</h3>
+              <span class="couple-nickname" id="groomNickName">Evan</span>
+              <p class="couple-parents" id="groomParents">
                 Putra Pertama dari<br>
                 <strong>Bapak Fauzan</strong> &amp; <strong>Ibu ...</strong>
               </p>
-              <a href="https://instagram.com/muhavann" target="_blank" rel="noopener noreferrer" class="couple-ig-btn">
+              <a id="groomIgLink" href="https://instagram.com/muhavann" target="_blank" rel="noopener noreferrer"
+                class="couple-ig-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
-                <span>@muhavann</span>
+                <span id="groomIgHandle">@muhavann</span>
               </a>
             </div>
 
+            <!-- Ampersand Wedding Divider -->
+            <div class="couple-divider-ampersand">
+              <span class="ampersand-circle">&amp;</span>
+            </div>
+
             <!-- Mempelai Wanita -->
-            <div class="nandana-card couple-profile-box muncul-kanan">
+            <div class="nandana-card couple-profile-box">
+              <div class="card-gold-corner corner-tl"></div>
+              <div class="card-gold-corner corner-tr"></div>
               <div class="couple-photo-arch">
-                <img src="assets/images/cewe.jpeg" alt="Salwa Carelina Maybrella">
+                <img id="bridePhotoImg" src="assets/images/cewe.jpeg" alt="Salwa Carelina Maybrella">
               </div>
-              <h3 class="couple-fullname">Salwa Carelina Maybrella</h3>
-              <span class="couple-nickname">Salwa</span>
-              <p class="couple-parents">
+              <h3 class="couple-fullname" id="brideFullName">Salwa Carelina Maybrella</h3>
+              <span class="couple-nickname" id="brideNickName">Salwa</span>
+              <p class="couple-parents" id="brideParents">
                 Putri Tercinta dari<br>
                 <strong>Bapak ...</strong> &amp; <strong>Ibu ...</strong>
               </p>
-              <a href="https://instagram.com/salwacarel_" target="_blank" rel="noopener noreferrer" class="couple-ig-btn">
+              <a id="brideIgLink" href="https://instagram.com/salwacarel_" target="_blank" rel="noopener noreferrer"
+                class="couple-ig-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
-                <span>@salwacarel_</span>
+                <span id="brideIgHandle">@salwacarel_</span>
               </a>
             </div>
           </div>
@@ -199,7 +250,15 @@
         <!-- 4. INTERACTIVE 3D WEDDING RINGS SHOWCASE (WEBGL CANVAS) -->
         <section id="ring3d" class="nandana-section muncul">
           <div class="rings-3d-container">
+            <div class="rings-aura-glow"></div>
             <canvas id="ringsCanvas"></canvas>
+            <div class="rings-touch-hint">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+              </svg>
+            </div>
             <div class="rings-overlay-label">✦ Dua Hati Terikat Dalam Satu Janji Suci ✦</div>
           </div>
         </section>
@@ -215,26 +274,29 @@
 
             <div class="countdown-grid">
               <div class="countdown-box">
-                <div id="countDays" class="countdown-number">00</div>
+                <div id="countDays" class="countdown-number"></div>
                 <div class="countdown-label">Hari</div>
               </div>
               <div class="countdown-box">
-                <div id="countHours" class="countdown-number">00</div>
+                <div id="countHours" class="countdown-number"></div>
                 <div class="countdown-label">Jam</div>
               </div>
               <div class="countdown-box">
-                <div id="countMinutes" class="countdown-number">00</div>
+                <div id="countMinutes" class="countdown-number"></div>
                 <div class="countdown-label">Menit</div>
               </div>
               <div class="countdown-box">
-                <div id="countSeconds" class="countdown-number">00</div>
+                <div id="countSeconds" class="countdown-number"></div>
                 <div class="countdown-label">Detik</div>
               </div>
             </div>
 
-            <a href="https://calendar.app.google/rGEViNodn64bDCK47" target="_blank" rel="noopener noreferrer" class="btn-calendar-add">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            <a href="https://calendar.app.google/rGEViNodn64bDCK47" target="_blank" rel="noopener noreferrer"
+              class="btn-calendar-add">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               <span>Tambahkan ke Google Calendar</span>
             </a>
@@ -252,22 +314,26 @@
           <!-- Akad Nikah -->
           <div class="nandana-card event-card-nandana muncul">
             <div class="event-icon-badge">💍</div>
-            <h3 class="event-title-main">Akad Nikah</h3>
-            <div class="event-subtitle-sub">Ijab Qabul &amp; Khutbah Nikah</div>
+            <h3 class="event-title-main" id="eventAkadTitle">Akad Nikah</h3>
+            <div class="event-subtitle-sub" id="eventAkadSubtitle">Ijab Qabul &amp; Khutbah Nikah</div>
 
             <ul class="event-details-list">
               <li class="event-detail-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 <div class="event-detail-text">
                   <strong>Hari &amp; Tanggal</strong>
-                  <span>Minggu, 15 Juni 2026</span>
+                  <span class="event-date-text">Minggu, 15 Juni 2026</span>
                 </div>
               </li>
               <li class="event-detail-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div class="event-detail-text">
                   <strong>Waktu Pelaksanaan</strong>
@@ -275,13 +341,17 @@
                 </div>
               </li>
               <li class="event-detail-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <div class="event-detail-text">
                   <strong>Tempat Acara</strong>
-                  <span>Masjid Istiqlal Jakarta<br><small style="color: var(--color-text-muted);">Jl. Taman Wijaya Kusuma, Ps. Baru, Sawah Besar, Jakarta Pusat</small></span>
+                  <span>Masjid Istiqlal Jakarta<br><small style="color: var(--color-text-muted);">Jl. Taman Wijaya
+                      Kusuma, Ps. Baru, Sawah Besar, Jakarta Pusat</small></span>
                 </div>
               </li>
             </ul>
@@ -290,22 +360,26 @@
           <!-- Resepsi Pernikahan -->
           <div class="nandana-card event-card-nandana muncul">
             <div class="event-icon-badge">🥂</div>
-            <h3 class="event-title-main">Resepsi Pernikahan</h3>
-            <div class="event-subtitle-sub">Ramah Tamah &amp; Doa Bersama</div>
+            <h3 class="event-title-main" id="eventResepsiTitle">Resepsi Pernikahan</h3>
+            <div class="event-subtitle-sub" id="eventResepsiSubtitle">Ramah Tamah &amp; Doa Bersama</div>
 
             <ul class="event-details-list">
               <li class="event-detail-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 <div class="event-detail-text">
                   <strong>Hari &amp; Tanggal</strong>
-                  <span>Minggu, 15 Juni 2026</span>
+                  <span class="event-date-text">Minggu, 15 Juni 2026</span>
                 </div>
               </li>
               <li class="event-detail-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div class="event-detail-text">
                   <strong>Waktu Pelaksanaan</strong>
@@ -313,9 +387,12 @@
                 </div>
               </li>
               <li class="event-detail-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <div class="event-detail-text">
                   <strong>Tempat Acara</strong>
@@ -328,15 +405,17 @@
           <!-- Google Maps Embed -->
           <div class="nandana-card muncul" style="padding: 22px;">
             <div class="map-embed-wrapper">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7161478303365!2d106.82880437499!3d-6.168751293818617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5ce68b5e01d%3A0xcafaf042d5840c6c!2sMasjid%20Istiqlal!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
-                loading="lazy"
-                title="Peta Lokasi Masjid Istiqlal">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7161478303365!2d106.82880437499!3d-6.168751293818617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5ce68b5e01d%3A0xcafaf042d5840c6c!2sMasjid%20Istiqlal!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                loading="lazy" title="Peta Lokasi Masjid Istiqlal">
               </iframe>
             </div>
-            <a href="https://maps.app.goo.gl/SGwtYZqm3dLAxDAb9" target="_blank" rel="noopener noreferrer" class="btn-calendar-add">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            <a href="https://maps.app.goo.gl/SGwtYZqm3dLAxDAb9" target="_blank" rel="noopener noreferrer"
+              class="btn-calendar-add">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
               <span>Buka Rute di Google Maps</span>
             </a>
@@ -345,21 +424,27 @@
 
         <!-- 7. LIVE STREAMING (#streaming) -->
         <section id="streaming" class="nandana-section muncul">
-          <div class="nandana-card text-center" style="background: linear-gradient(135deg, #2b1f1c 0%, #1a1210 100%); color: #ffffff; border-color: var(--color-gold);">
-            <div style="display: inline-block; background: #c5221f; color: #ffffff; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; padding: 4px 14px; border-radius: var(--radius-pill); text-transform: uppercase; margin-bottom: 12px;">
+          <div class="nandana-card text-center"
+            style="background: linear-gradient(135deg, #2b1f1c 0%, #1a1210 100%); color: #ffffff; border-color: var(--color-gold);">
+            <div
+              style="display: inline-block; background: #c5221f; color: #ffffff; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; padding: 4px 14px; border-radius: var(--radius-pill); text-transform: uppercase; margin-bottom: 12px;">
               Siaran Langsung
             </div>
-            <h2 style="font-family: var(--font-sc); font-size: 1.85rem; color: var(--color-gold-light); margin-bottom: 8px;">Virtual Wedding</h2>
+            <h2
+              style="font-family: var(--font-sc); font-size: 1.85rem; color: var(--color-gold-light); margin-bottom: 8px;">
+              Virtual Wedding</h2>
             <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; max-width: 440px; margin: 0 auto 20px;">
               Bagi keluarga dan sahabat yang berhalangan hadir secara langsung, silakan bergabung secara virtual:
             </p>
 
             <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-              <a href="https://instagram.com/muhavann" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-pill); background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+              <a href="https://instagram.com/muhavann" target="_blank" rel="noopener noreferrer"
+                style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-pill); background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
                 <span>Instagram Live @muhavann</span>
               </a>
 
-              <a href="https://zoom.us/join" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-pill); background: #2d8cff; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+              <a href="https://zoom.us/join" target="_blank" rel="noopener noreferrer"
+                style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-pill); background: #2d8cff; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
                 <span>Zoom Meeting</span>
               </a>
             </div>
@@ -385,7 +470,8 @@
                 <span class="story-year-tag">Tahun 2020</span>
                 <h4 class="story-item-title">Pertemuan Pertama</h4>
                 <p class="story-item-desc">
-                  Sebuah perkenalan sederhana yang tak disangka menjadi awal mula tumbuhnya rasa cinta. Dari obrolan hangat, kami menemukan kecocokan dan kenyamanan hati.
+                  Sebuah perkenalan sederhana yang tak disangka menjadi awal mula tumbuhnya rasa cinta. Dari obrolan
+                  hangat, kami menemukan kecocokan dan kenyamanan hati.
                 </p>
               </div>
             </div>
@@ -397,7 +483,8 @@
                 <span class="story-year-tag">Tahun 2023</span>
                 <h4 class="story-item-title">Menjalin Komitmen</h4>
                 <p class="story-item-desc">
-                  Dengan niat yang tulus, kami memantapkan hati untuk saling mendampingi, bertumbuh bersama, dan melangkah dengan satu tujuan yang sama.
+                  Dengan niat yang tulus, kami memantapkan hati untuk saling mendampingi, bertumbuh bersama, dan
+                  melangkah dengan satu tujuan yang sama.
                 </p>
               </div>
             </div>
@@ -409,7 +496,8 @@
                 <span class="story-year-tag">Tahun 2025</span>
                 <h4 class="story-item-title">Pertunangan &amp; Lamaran</h4>
                 <p class="story-item-desc">
-                  Atas ridho dan restu kedua orang tua serta keluarga besar, kami mengikat janji suci pertunangan untuk melangkah ke jenjang pernikahan.
+                  Atas ridho dan restu kedua orang tua serta keluarga besar, kami mengikat janji suci pertunangan untuk
+                  melangkah ke jenjang pernikahan.
                 </p>
               </div>
             </div>
@@ -421,7 +509,8 @@
                 <span class="story-year-tag">Tahun 2026</span>
                 <h4 class="story-item-title">Hari Pernikahan Suci</h4>
                 <p class="story-item-desc">
-                  Mengukir janji seumur hidup dalam ikatan suci pernikahan di hadapan Allah SWT, keluarga, dan seluruh sahabat tercinta.
+                  Mengukir janji seumur hidup dalam ikatan suci pernikahan di hadapan Allah SWT, keluarga, dan seluruh
+                  sahabat tercinta.
                 </p>
               </div>
             </div>
@@ -438,10 +527,8 @@
 
           <!-- Video Prewedding -->
           <div class="video-player-frame muncul">
-            <iframe 
-              src="https://www.youtube.com/embed/moZNGtKcOFg" 
-              title="Prewedding Video Evan &amp; Salwa" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            <iframe src="https://www.youtube.com/embed/moZNGtKcOFg" title="Prewedding Video Evan &amp; Salwa"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
             </iframe>
           </div>
@@ -485,7 +572,8 @@
 
           <div class="nandana-card text-center" style="text-align: center;">
             <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 22px;">
-              Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda bermaksud memberi tanda kasih secara digital maupun kado fisik, silakan gunakan fasilitas berikut:
+              Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda bermaksud memberi tanda kasih secara
+              digital maupun kado fisik, silakan gunakan fasilitas berikut:
             </p>
 
             <!-- Tab Switcher -->
@@ -506,9 +594,10 @@
                   <img src="assets/images/bca.png" alt="BCA" class="bank-logo-img">
                   <div class="bank-chip-gold"></div>
                 </div>
-                <div class="bank-number-text">1234 5678</div>
-                <div class="bank-holder-text">a.n. Muhamad Evan Fauzan</div>
-                <button type="button" class="btn-copy-gold" onclick="copyText('12345678', 'Nomor rekening BCA berhasil disalin!')">
+                <div class="bank-number-text" id="bcaNumberText">1234 5678</div>
+                <div class="bank-holder-text" id="bcaHolderText">a.n. Muhamad Evan Fauzan</div>
+                <button type="button" class="btn-copy-gold"
+                  onclick="copyText('12345678', 'Nomor rekening BCA berhasil disalin!')">
                   <span>📋 Salin No. Rekening</span>
                 </button>
               </div>
@@ -519,9 +608,10 @@
                   <div style="font-size: 1.25rem; font-weight: 800; color: #ffffff;">DANA / E-Wallet</div>
                   <div class="bank-chip-gold"></div>
                 </div>
-                <div class="bank-number-text">0857 1894 5476</div>
-                <div class="bank-holder-text">a.n. Muhamad Evan Fauzan</div>
-                <button type="button" class="btn-copy-gold" onclick="copyText('085718945476', 'Nomor DANA berhasil disalin!')">
+                <div class="bank-number-text" id="danaNumberText">0857 1894 5476</div>
+                <div class="bank-holder-text" id="bcaHolderText">a.n. Muhamad Evan Fauzan</div>
+                <button type="button" class="btn-copy-gold"
+                  onclick="copyText('085718945476', 'Nomor DANA berhasil disalin!')">
                   <span>📋 Salin No. DANA</span>
                 </button>
               </div>
@@ -529,14 +619,19 @@
 
             <!-- Panel 2: Kirim Kado Fisik -->
             <div id="giftPhysicalPanel" style="display: none;">
-              <div style="background: #faf8f5; border: 1.5px dashed var(--color-border); border-radius: var(--radius-md); padding: 22px; text-align: left;">
-                <h4 style="font-family: var(--font-sc); font-size: 1.15rem; color: var(--color-primary-dark); margin-bottom: 8px;">Alamat Pengiriman Kado</h4>
+              <div
+                style="background: #faf8f5; border: 1.5px dashed var(--color-border); border-radius: var(--radius-md); padding: 22px; text-align: left;">
+                <h4
+                  style="font-family: var(--font-sc); font-size: 1.15rem; color: var(--color-primary-dark); margin-bottom: 8px;">
+                  Alamat Pengiriman Kado</h4>
                 <p style="font-size: 0.95rem; color: var(--color-text); line-height: 1.6; margin-bottom: 16px;">
                   <strong>Penerima:</strong> Evan &amp; Salwa<br>
                   <strong>No. HP:</strong> 0857-1894-5476<br>
-                  <strong>Alamat:</strong> Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, DKI Jakarta 10710
+                  <strong>Alamat:</strong> Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat,
+                  DKI Jakarta 10710
                 </p>
-                <button type="button" class="btn-calendar-add" onclick="copyText('Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, DKI Jakarta 10710 (Up: Evan & Salwa / 0857-1894-5476)', 'Alamat pengiriman kado berhasil disalin!')">
+                <button type="button" class="btn-calendar-add"
+                  onclick="copyText('Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, DKI Jakarta 10710 (Up: Evan & Salwa / 0857-1894-5476)', 'Alamat pengiriman kado berhasil disalin!')">
                   <span>📋 Salin Alamat Lengkap</span>
                 </button>
               </div>
@@ -560,26 +655,31 @@
             <form id="wishesForm">
               <div class="wishes-form-group">
                 <label for="wishNama" class="wishes-label">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                   <span>Nama Lengkap</span>
                 </label>
-                <input type="text" id="wishNama" class="wishes-input-field" placeholder="Masukkan nama lengkap Anda..." required>
+                <input type="text" id="wishNama" class="wishes-input-field" placeholder="Masukkan nama lengkap Anda..."
+                  required>
               </div>
 
               <!-- Konfirmasi Kehadiran -->
               <div class="wishes-form-group">
                 <label class="wishes-label">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span>Konfirmasi Kehadiran</span>
                 </label>
                 <div class="attendance-pills-row">
                   <label class="attendance-pill-btn active">
                     <input type="radio" name="hadir" value="1" checked>
-                    <span>🟢 Insya Allah Hadir</span>
+                    <span>🟢 Hadir</span>
                   </label>
                   <label class="attendance-pill-btn">
                     <input type="radio" name="hadir" value="0">
@@ -592,27 +692,42 @@
               <div class="wishes-form-group">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                   <label for="wishKomentar" class="wishes-label" style="margin-bottom: 0;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                     </svg>
                     <span>Doa &amp; Ucapan</span>
                   </label>
-                  <span style="font-size: 0.74rem; color: var(--color-primary); font-weight: 600;">Klik untuk tempel:</span>
+                  <span style="font-size: 0.74rem; color: var(--color-primary); font-weight: 600;">Klik untuk
+                    tempel:</span>
                 </div>
 
                 <div class="quick-doa-chips">
-                  <button type="button" class="quick-doa-chip" onclick="insertQuickDoa('Barakallahu lakuma wa baraka \'alaikuma wa jama\'a bainakuma fii khoir. Selamat Evan & Salwa!')">✨ Barakallah</button>
-                  <button type="button" class="quick-doa-chip" onclick="insertQuickDoa('Selamat menempuh hidup baru Evan & Salwa! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.')">🌸 Sakinah</button>
-                  <button type="button" class="quick-doa-chip" onclick="insertQuickDoa('Happy wedding Evan & Salwa! Semoga bahagia selalu hingga kakek nenek.')">🎉 Happy Wedding</button>
+                  <button type="button" class="quick-doa-chip"
+                    onclick="insertQuickDoa('Happy wedding Evan & Salwa! Selamat berbahagia dan langgeng selamanya!')">🎉
+                    Happy Wedding</button>
+                  <button type="button" class="quick-doa-chip"
+                    onclick="insertQuickDoa('Selamat menempuh hidup baru bro & sis! Makin kompak, bahagia, dan banyak rezeki!')">🥂
+                    Cheers &amp; Love</button>
+                  <button type="button" class="quick-doa-chip"
+                    onclick="insertQuickDoa('Congrats on your big day! Semoga perjalanan cinta kalian selalu diliputi tawa & sukacita!')">✨
+                    Best Wishes</button>
+                  <button type="button" class="quick-doa-chip"
+                    onclick="insertQuickDoa('Happy wedding day! Selamat menikmati babak baru bersama, happily ever after!')">❤️
+                    Langgeng Terus</button>
                 </div>
 
-                <textarea id="wishKomentar" class="wishes-textarea-field" placeholder="Tuliskan ucapan selamat dan doa restu terbaik Anda..." required></textarea>
+                <textarea id="wishKomentar" class="wishes-textarea-field"
+                  placeholder="Tuliskan ucapan selamat dan doa restu terbaik Anda..." required></textarea>
               </div>
 
               <!-- Tombol Submit -->
               <button type="submit" class="btn-submit-wish">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>
                 <span>Kirim Ucapan &amp; Doa Restu</span>
               </button>
@@ -620,7 +735,8 @@
               <!-- Tombol WhatsApp -->
               <button type="button" onclick="sendWhatsAppRsvp()" class="btn-wa-rsvp">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.961.905 2.796.906h.005c3.179 0 5.766-2.586 5.767-5.766.001-1.54-.598-2.988-1.687-4.078-1.09-1.089-2.539-1.688-4.085-1.687zm8.497 5.767c-.002 4.685-3.812 8.496-8.498 8.496-1.488 0-2.946-.388-4.234-1.124l-4.796 1.258 1.28-4.672c-.808-1.336-1.234-2.884-1.233-4.46.002-4.685 3.813-8.496 8.5-8.496 2.272.001 4.408.886 6.014 2.493 1.606 1.606 2.491 3.743 2.487 6.005z"/>
+                  <path
+                    d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.961.905 2.796.906h.005c3.179 0 5.766-2.586 5.767-5.766.001-1.54-.598-2.988-1.687-4.078-1.09-1.089-2.539-1.688-4.085-1.687zm8.497 5.767c-.002 4.685-3.812 8.496-8.498 8.496-1.488 0-2.946-.388-4.234-1.124l-4.796 1.258 1.28-4.672c-.808-1.336-1.234-2.884-1.233-4.46.002-4.685 3.813-8.496 8.5-8.496 2.272.001 4.408.886 6.014 2.493 1.606 1.606 2.491 3.743 2.487 6.005z" />
                 </svg>
                 <span>Konfirmasi Langsung via WhatsApp</span>
               </button>
@@ -629,7 +745,8 @@
             <!-- Feed Daftar Ucapan Dari Database MySQL -->
             <div class="wishes-feed-wrapper">
               <div class="wishes-feed-header">
-                <h4 style="font-family: var(--font-sc); font-size: 1.15rem; color: var(--color-primary-dark); margin: 0;">
+                <h4
+                  style="font-family: var(--font-sc); font-size: 1.15rem; color: var(--color-primary-dark); margin: 0;">
                   Doa dari Keluarga &amp; Sahabat
                 </h4>
                 <div id="wishesCounterBadge" class="wishes-counter-badge">
@@ -648,14 +765,18 @@
         <!-- 12. PENUTUP & TERIMA KASIH -->
         <section class="nandana-section muncul">
           <div class="nandana-card text-center" style="text-align: center; padding: 40px 24px;">
-            <p style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.7; max-width: 500px; margin: 0 auto 16px;">
-              Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga, apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.
+            <p
+              style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.7; max-width: 500px; margin: 0 auto 16px;">
+              Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga, apabila Bapak/Ibu/Saudara/i berkenan
+              hadir untuk memberikan doa restu kepada kedua mempelai.
             </p>
-            <div style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--color-primary); margin-bottom: 8px;">
-              Wassalamu'alaikum Warahmatullahi Wabarakatuh
+            <div
+              style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--color-primary); margin-bottom: 8px;">
+              Dengan Penuh Rasa Syukur &amp; Cinta Bahagia,
             </div>
 
-            <div style="font-family: var(--font-sc); font-size: 2.8rem; font-weight: 700; color: var(--color-text); margin: 12px 0 6px;">
+            <div
+              style="font-family: var(--font-sc); font-size: 2.8rem; font-weight: 700; color: var(--color-text); margin: 12px 0 6px;">
               Evan &amp; Salwa
             </div>
 
@@ -664,7 +785,8 @@
               <strong>Keluarga Besar Bpk. Fauzan</strong> &amp; <strong>Keluarga Besar Bpk. ...</strong>
             </p>
 
-            <img src="assets/images/nandana/Untitled-1.png" alt="Bottom Ornament" class="head-divider-img" style="margin-top: 26px;">
+            <img src="assets/images/nandana/Untitled-1.png" alt="Bottom Ornament" class="head-divider-img"
+              style="margin-top: 26px;">
           </div>
         </section>
 
@@ -679,35 +801,40 @@
   <nav class="floating-dock-nandana" aria-label="Navigasi Undangan">
     <a href="#hom" class="dock-item-btn active" title="Sampul">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
       <span>Sampul</span>
     </a>
 
     <a href="#mempelai" class="dock-item-btn" title="Mempelai">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
       </svg>
       <span>Mempelai</span>
     </a>
 
     <a href="#acara" class="dock-item-btn" title="Acara">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
       <span>Acara</span>
     </a>
 
     <a href="#galeri" class="dock-item-btn" title="Galeri">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
       <span>Galeri</span>
     </a>
 
     <a href="#wishes" class="dock-item-btn" title="Ucapan">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
       </svg>
       <span>Ucapan</span>
     </a>
@@ -718,13 +845,18 @@
        =================================================================== -->
   <div id="lightboxModal" class="lightbox-modal">
     <div class="lightbox-content-box">
-      <button onclick="closeLightbox()" class="lightbox-ctrl-btn" style="position: absolute; top: -50px; right: 0;" title="Tutup">✕</button>
-      <button onclick="prevPhoto()" class="lightbox-ctrl-btn" style="position: absolute; left: -55px; top: 50%; transform: translateY(-50%);" title="Sebelumnya">‹</button>
-      
+      <button onclick="closeLightbox()" class="lightbox-ctrl-btn" style="position: absolute; top: -50px; right: 0;"
+        title="Tutup">✕</button>
+      <button onclick="prevPhoto()" class="lightbox-ctrl-btn"
+        style="position: absolute; left: -55px; top: 50%; transform: translateY(-50%);" title="Sebelumnya">‹</button>
+
       <img id="lightboxImg" src="assets/images/savan.jpg" alt="Foto Pengantin" class="lightbox-img-view">
-      <div id="lightboxCaption" style="color: var(--color-gold-light); font-size: 0.95rem; margin-top: 12px; font-family: var(--font-sc); letter-spacing: 1px;"></div>
-      
-      <button onclick="nextPhoto()" class="lightbox-ctrl-btn" style="position: absolute; right: -55px; top: 50%; transform: translateY(-50%);" title="Selanjutnya">›</button>
+      <div id="lightboxCaption"
+        style="color: var(--color-gold-light); font-size: 0.95rem; margin-top: 12px; font-family: var(--font-sc); letter-spacing: 1px;">
+      </div>
+
+      <button onclick="nextPhoto()" class="lightbox-ctrl-btn"
+        style="position: absolute; right: -55px; top: 50%; transform: translateY(-50%);" title="Selanjutnya">›</button>
     </div>
   </div>
 
@@ -735,6 +867,7 @@
   </div>
 
   <!-- Nandana Script -->
-  <script src="assets/js/nandana.js"></script>
+  <script src="assets/js/nandana.js?v=2.2"></script>
 </body>
+
 </html>

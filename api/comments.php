@@ -8,22 +8,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
-// Database configuration
-$host = '153.92.15.11';
-$dbname = 'u883909247_weddingg';
-$username = 'u883909247_weddingg';
-$password = 'Weddingg@88';
+require_once __DIR__ . '/db.php';
 
-try {
-    $pdo = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8mb4", $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
-} catch (PDOException $e) {
+$pdo = getDbConnection();
+
+if (!$pdo) {
     http_response_code(500);
     echo json_encode([
         'success' => false,
-        'message' => 'Gagal terhubung ke database: ' . $e->getMessage()
+        'message' => 'Gagal terhubung ke database server.'
     ]);
     exit;
 }
@@ -118,6 +111,35 @@ if ($method === 'POST') {
             'success' => false,
             'message' => 'Gagal menyimpan ucapan ke database: ' . $e->getMessage()
         ]);
+    }
+    exit;
+}
+
+if ($method === 'DELETE' || ($method === 'POST' && isset($_GET['action']) && $_GET['action'] === 'delete')) {
+    $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    if (!$id) {
+        $raw = file_get_contents('php://input');
+        $data = json_decode($raw, true);
+        $id = isset($data['id']) ? intval($data['id']) : 0;
+    }
+
+    if ($id <= 0) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'ID ucapan tidak valid.']);
+        exit;
+    }
+
+    try {
+        $stmt = $pdo->prepare("DELETE FROM comments WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+
+        echo json_encode([
+            'success' => true,
+            'message' => 'Ucapan berhasil dihapus.'
+        ]);
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode(['success' => false, 'message' => 'Gagal menghapus ucapan: ' . $e->getMessage()]);
     }
     exit;
 }
